@@ -1,88 +1,61 @@
-import React from 'react'
-import Head from 'next/head'
-import Nav from '../components/nav'
+import React from "react";
+import Link from "next/link";
+import Head from "../components/head";
+import Layout from "../components/layout";
 
-const Home = () => (
-  <div>
-    <Head>
-      <title>Home</title>
-      <link rel='icon' href='/favicon.ico' />
-    </Head>
+const notes = [{ slug: "hello", title: "Hello", date: "2019-11-03 14:16:03" }];
 
-    <Nav />
+const Home = () => {
+  return (
+    <Layout>
+      <Head>
+        <title>ы</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-    <div className='hero'>
-      <h1 className='title'>Welcome to Next.js!</h1>
-      <p className='description'>
-        To get started, edit <code>pages/index.js</code> and save to reload.
-      </p>
+      <h2>Заметки</h2>
 
-      <div className='row'>
-        <a href='https://nextjs.org/docs' className='card'>
-          <h3>Documentation &rarr;</h3>
-          <p>Learn more about Next.js in the documentation.</p>
-        </a>
-        <a href='https://nextjs.org/learn' className='card'>
-          <h3>Next.js Learn &rarr;</h3>
-          <p>Learn about Next.js by following an interactive tutorial!</p>
-        </a>
+      {notes.length < 1 && <p>Все заметки куда-то потерялись… :-(</p>}
+      {notes.length > 0 && (
+        <ul className="homepage-columns__column-items zbz-links-list">
+          {notes.map(({ slug, date, title, html }) => (
+            <li key={slug} className={`zbz-links-list__item`} data-date={date}>
+              <Link href={"/" + slug}>
+                <a className={`zbz-link`}>{title}</a>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+      <br />
+      <br />
+      <p>
+        Привет. Ну раз уж вы не поленились и доскроллили до конца страницы, то
+        давайте знакомиться. Меня зовут Семен. Я — программист.
+        <br />
+        Здесь я записываю заметочки себе на память. В основном фигня всякая, но
+        может попасться и что-то интересное. Мало ли когда пригодится…
+        <br />
+        Если интересно, можете посмотреть{" "}
         <a
-          href='https://github.com/zeit/next.js/tree/master/examples'
-          className='card'
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/zobzn/"
         >
-          <h3>Examples &rarr;</h3>
-          <p>Find other example boilerplates on the Next.js GitHub.</p>
+          мой github
         </a>
-      </div>
-    </div>
+        , а если очень хочень можете даже{" "}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://docs.google.com/forms/d/e/1FAIpQLScrzauOuVwNKqYEd3UCeM_ihMCknTRKvfvNLIDRj6b2r8cp9A/viewform"
+        >
+          написать
+        </a>{" "}
+        мне что-нибудь.
+      </p>
+    </Layout>
+  );
+};
 
-    <style jsx>{`
-      .hero {
-        width: 100%;
-        color: #333;
-      }
-      .title {
-        margin: 0;
-        width: 100%;
-        padding-top: 80px;
-        line-height: 1.15;
-        font-size: 48px;
-      }
-      .title,
-      .description {
-        text-align: center;
-      }
-      .row {
-        max-width: 880px;
-        margin: 80px auto 40px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-      }
-      .card {
-        padding: 18px 18px 24px;
-        width: 220px;
-        text-align: left;
-        text-decoration: none;
-        color: #434343;
-        border: 1px solid #9b9b9b;
-      }
-      .card:hover {
-        border-color: #067df7;
-      }
-      .card h3 {
-        margin: 0;
-        color: #067df7;
-        font-size: 18px;
-      }
-      .card p {
-        margin: 0;
-        padding: 12px 0 0;
-        font-size: 13px;
-        color: #333;
-      }
-    `}</style>
-  </div>
-)
-
-export default Home
+export default Home;
