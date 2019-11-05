@@ -1,17 +1,22 @@
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import React from "react";
 
 const localhosts = ["localhost", "127.0.0.1", "10.0.75.1", "192.168.0.100"];
 const siteTitle = `Ы`;
 const rootPath = `/`;
 
-export default function Header() {
+function Header(props) {
   const router = useRouter();
-
+  const [isLocalHost, setIsLocalHost] = useState(false);
   const isHomepage = rootPath === router.pathname;
-  const hostname = process.browser ? window.location.hostname : null;
-  const isLocalHost = hostname && localhosts.indexOf(hostname) !== -1;
+
+  console.log("Header props", props);
+
+  useEffect(() => {
+    console.log("Header useEffect");
+    setIsLocalHost(localhosts.indexOf(window.location.hostname) !== -1);
+  }, [setIsLocalHost]);
 
   return (
     <header className="site-head">
@@ -33,3 +38,5 @@ export default function Header() {
     </header>
   );
 }
+
+export default Header;
