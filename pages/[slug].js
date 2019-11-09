@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import Head from "../components/head";
 import Layout from "../components/layout";
-import Error from "next/error";
+import Error from "./_error";
 
 const notes = require("../data/index");
 
