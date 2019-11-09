@@ -1,5 +1,5 @@
 {
   "verbose": false,
-  "watch": ["nodemon.json", "next.config.js"],
+  "watch": ["nodemon.json", "next.config.js", "lib/*"],
   "ignore": [".next/*", "node_modules/*", "package.json", "package-lock.json"]
 }

@@ -11,10 +11,7 @@ function Header(props) {
   const [isLocalHost, setIsLocalHost] = useState(false);
   const isHomepage = rootPath === router.pathname;
 
-  console.log("Header props", props);
-
   useEffect(() => {
-    console.log("Header useEffect");
     setIsLocalHost(localhosts.indexOf(window.location.hostname) !== -1);
   }, [setIsLocalHost]);
 
