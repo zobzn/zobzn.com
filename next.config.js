@@ -12,7 +12,7 @@ const nextConfig = {
       test: /\.md$/,
       use: [
         options.defaultLoaders.babel,
-        path.join(__dirname, "./lib/md-loader")
+        path.join(__dirname, "./src/lib/md-loader")
       ]
     });
 
@@ -20,7 +20,7 @@ const nextConfig = {
       test: /\.mdx$/,
       use: [
         options.defaultLoaders.babel,
-        path.join(__dirname, "./lib/mdx-loader")
+        path.join(__dirname, "./src/lib/mdx-loader")
       ]
     });
 

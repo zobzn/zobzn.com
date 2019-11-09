@@ -3,10 +3,13 @@ import Link from "next/link";
 import Head from "../components/head";
 import Layout from "../components/layout";
 import Error from "./_error";
+import dayjs from "dayjs";
 
 const notes = require("../data/index");
 
-function Article({ Post }) {
+function Article(props) {
+  const { Post } = props;
+
   if (!Post) {
     return <Error statusCode={404} />;
   }
@@ -19,10 +22,29 @@ function Article({ Post }) {
         <title>ы</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <pre
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(meta, null, 2) }}
-      ></pre>
-      <div dangerouslySetInnerHTML={{ __html: html }}></div>
+      <article>
+        <div className="article-head">
+          <h1>{meta.title}</h1>
+        </div>
+        <div
+          className="article-body"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      </article>
+      <div className="article-info">
+        <div className="article-info__wrapper">
+          <div className="article-info__date">
+            {dayjs(meta.date).format("DD.MM.YYYY")}
+          </div>
+          {false && (
+            <ul className="article-info__tags">
+              <li className="article-info__tag">
+                <a href="/tags/windows">windows</a>
+              </li>
+            </ul>
+          )}
+        </div>
+      </div>
     </Layout>
   );
 }

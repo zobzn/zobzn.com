@@ -9,7 +9,7 @@ date: "2014-07-02 22:33:52"
 http://codepen.io/kizu/pen/LpQPmY?editors=110
 -->
 
-![Блок со скроллом и тенью](example.png)
+![Блок со скроллом и тенью](/images/ten-bloka-so-skrollom/example.png)
 
 За основу брал варианты [Романа Комарова](http://kizu.ru/fun/shadowscroll/) и [Lea Verou](http://lea.verou.me/2012/04/background-attachment-local/).
 Основная идея тут в том, что создаются две тени, темная и светлая.
