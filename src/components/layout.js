@@ -2,8 +2,6 @@ import PropTypes from "prop-types";
 import React from "react";
 import Header from "./header";
 
-import "../styles/app.scss";
-
 // export default function Layout({ location, children }) {
 export default function Layout({ children }) {
   return (

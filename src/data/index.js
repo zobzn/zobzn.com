@@ -25,11 +25,6 @@ if (false) {
 
 module.exports = [
   {
-    slug: "bla-bla-bla-404",
-    title: "404",
-    date: "2019-11-09 12:49"
-  },
-  {
     slug: "adaptivnaya-verstka-bez-media-zaprosov",
     title: "Адаптивная верстка без медиа запросов",
     date: "2019-09-10 19:21"

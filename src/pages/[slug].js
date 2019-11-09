@@ -1,21 +1,17 @@
-import React, { useEffect } from "react";
-import Link from "next/link";
+import React from "react";
 import Head from "../components/head";
 import Layout from "../components/layout";
 import Error from "./_error";
 import dayjs from "dayjs";
-import dynamic from "next/dynamic";
 
 const notes = require("../data/index");
 
-function Article(props) {
-  const { Post } = props;
-
-  if (!Post) {
+function Article({ post }) {
+  if (!post) {
     return <Error statusCode={404} />;
   }
 
-  const { meta, html } = Post;
+  const { meta, html } = post;
 
   return (
     <Layout>
@@ -50,23 +46,26 @@ function Article(props) {
   );
 }
 
+console.log("process.browser", process.browser);
+
 Article.getInitialProps = async ({ res, query: { slug } }) => {
-  console.log("Article.getInitialProps", slug);
+  console.log("Article.getInitialProps");
 
   const exists = notes.find(note => note.slug === slug);
-  let Post = null;
+
+  let post = null;
 
   if (exists) {
     try {
-      Post = (await import(`../data/posts/${slug}.md`)).default;
+      post = (await import(`../data/posts/${slug}.md`)).default;
     } catch (e) {}
   }
 
-  if (!Post && res) {
+  if (!post && res) {
     res.statusCode = 404;
   }
 
-  return { Post };
+  return { post };
 };
 
 export default Article;
