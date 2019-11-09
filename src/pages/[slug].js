@@ -4,6 +4,7 @@ import Head from "../components/head";
 import Layout from "../components/layout";
 import Error from "./_error";
 import dayjs from "dayjs";
+import dynamic from "next/dynamic";
 
 const notes = require("../data/index");
 
@@ -50,6 +51,8 @@ function Article(props) {
 }
 
 Article.getInitialProps = async ({ res, query: { slug } }) => {
+  console.log("Article.getInitialProps", slug);
+
   const exists = notes.find(note => note.slug === slug);
   let Post = null;
 
