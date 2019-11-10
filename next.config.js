@@ -16,6 +16,11 @@ const nextConfig = {
       ]
     });
 
+    config.module.rules.push({
+      test: /\.txt$/,
+      use: "raw-loader"
+    });
+
     // Fixes npm packages that depend on `fs` module
     if (!isServer) {
       config.node = {
