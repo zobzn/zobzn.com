@@ -1,11 +1,6 @@
 @import "./_variables.scss";
 @import "./_breakpoints.scss";
 
-// Spacing
-//
-// Control the default styling of most Bootstrap elements by modifying these
-// variables. Mostly focused on spacing.
-// You can add more entries to the $spacers map, should you need more variation.
 $spacer: 1rem !default;
 $spacers: (
   0: 0,
@@ -23,9 +18,6 @@ $spacers: (
     $spacer * 3
   )
 ) !default;
-
-// stylelint-disable declaration-no-important
-// Margin and Padding
 
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {

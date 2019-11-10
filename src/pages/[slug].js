@@ -46,11 +46,7 @@ function Article({ post }) {
   );
 }
 
-console.log("process.browser", process.browser);
-
 Article.getInitialProps = async ({ res, query: { slug } }) => {
-  console.log("Article.getInitialProps");
-
   const exists = notes.find(note => note.slug === slug);
 
   let post = null;

@@ -6,7 +6,7 @@ const localhosts = ["localhost", "127.0.0.1", "10.0.75.1", "192.168.0.100"];
 const siteTitle = `Ы`;
 const rootPath = `/`;
 
-function Header(props) {
+export default function Header() {
   const router = useRouter();
   const [isLocalHost, setIsLocalHost] = useState(false);
   const isHomepage = rootPath === router.pathname;
@@ -35,5 +35,3 @@ function Header(props) {
     </header>
   );
 }
-
-export default Header;
