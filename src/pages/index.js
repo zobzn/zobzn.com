@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/link";
+import Link from "../components/link";
 import Head from "../components/head";
 import Layout from "../components/layout";
 
@@ -29,8 +29,7 @@ export default function Home() {
       )}
       <br />
       <br />
-      <p>Футер</p>
-      {false && (
+      {true && (
         <p>
           Привет. Ну раз уж вы не поленились и доскроллили до конца страницы, то
           давайте знакомиться. Меня зовут Семен. Я — программист.

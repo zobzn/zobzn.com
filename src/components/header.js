@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import Link from "next/link";
+import Link from "./link";
 
 const localhosts = ["localhost", "127.0.0.1", "10.0.75.1", "192.168.0.100"];
 const siteTitle = `Ы`;

@@ -1,8 +1,8 @@
 import "../styles/404.scss";
 
 import React from "react";
-import Link from "next/link";
-import Head from "next/head";
+import Link from "../components/link";
+import Head from "../components/head";
 
 const statusCodes = {
   400: "400: Bad Request",
