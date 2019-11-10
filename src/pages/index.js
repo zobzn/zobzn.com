@@ -45,7 +45,7 @@ export default function Home() {
         >
           мой github
         </a>
-        , а если очень хочень можете даже{" "}
+        , а если очень хочется, можете даже{" "}
         <a
           target="_blank"
           rel="noopener noreferrer"

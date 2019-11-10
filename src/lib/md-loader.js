@@ -1,8 +1,9 @@
 const matter = require("gray-matter");
 const unified = require("unified");
-const parse = require("remark-parse");
-const remark2react = require("remark-react");
-const remark2html = require("remark-html");
+const remarkParse = require("remark-parse");
+const remark2rehype = require("remark-rehype");
+const rehypePrism = require("@mapbox/rehype-prism");
+const rehypeStringify = require("rehype-stringify");
 
 module.exports = async function(rawContent) {
   const callback = this.async();
@@ -12,9 +13,10 @@ module.exports = async function(rawContent) {
 
   try {
     html = unified()
-      .use(parse)
-      // .use(remark2react)
-      .use(remark2html)
+      .use(remarkParse)
+      .use(remark2rehype)
+      .use(rehypePrism)
+      .use(rehypeStringify)
       .processSync(content).contents;
   } catch (err) {
     return callback(err);

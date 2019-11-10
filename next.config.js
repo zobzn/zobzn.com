@@ -4,7 +4,7 @@ const withSass = require("@zeit/next-sass");
 
 const nextConfig = {
   // target: "serverless",
-  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
+  pageExtensions: ["js", "jsx", "ts", "tsx", "md"],
   webpack: (config, options) => {
     const { isServer } = options;
 
@@ -13,14 +13,6 @@ const nextConfig = {
       use: [
         options.defaultLoaders.babel,
         path.join(__dirname, "./src/lib/md-loader")
-      ]
-    });
-
-    config.module.rules.push({
-      test: /\.mdx$/,
-      use: [
-        options.defaultLoaders.babel,
-        path.join(__dirname, "./src/lib/mdx-loader")
       ]
     });
 
