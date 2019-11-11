@@ -22,7 +22,7 @@ export default function Home() {
           {notes.map(({ slug, title }) => (
             <li key={slug} className={`zbz-links-list__item`}>
               <Link href={`/[slug]`} as={`/${slug}`}>
-                <ZbzLink>{title}</ZbzLink>
+                <a className="zbz-link">{title}</a>
               </Link>
             </li>
           ))}
