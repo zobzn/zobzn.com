@@ -27,7 +27,7 @@ class ZbzApp extends App {
         <motion.div
           key={router.route}
           variants={variants}
-          initial="hidden"
+          initial={false}
           animate="visible"
           exit="hidden"
         >
