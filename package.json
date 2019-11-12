@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "nodemon": "nodemon --exec \"npm run dev\""
+    "nodemon": "nodemon --exec \"npm run dev\"",
+    "prettier": "prettier --write \"**/*.{js,jsx,json,md}\""
   },
   "devDependencies": {
     "@mapbox/rehype-prism": "^0.3.1",
@@ -16,6 +17,7 @@
     "next": "9.1.2",
     "node-sass": "^4.13.0",
     "nodemon": "^1.19.4",
+    "prettier": "^1.19.1",
     "prismjs": "^1.17.1",
     "raw-loader": "^3.1.0",
     "rehype-raw": "^4.0.1",
@@ -35,6 +37,6 @@
   "browserslist": [
     "last 2 versions",
     "not ie <= 8",
-    "> 10%"
+    "> 1%"
   ]
 }
