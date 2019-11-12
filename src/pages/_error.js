@@ -65,8 +65,13 @@ const MyError = props => {
       <p className="para-bordered">
         Если Вы считаете, что запрошенная Вами страница должна находиться
         по&nbsp;этому адресу или Вы перешли на&nbsp;нее по&nbsp;ссылке
-        с&nbsp;одной из&nbsp;страниц этого&nbsp;же сайта, пожалуйста, сообщите
-        нам об&nbsp;этом.
+        с&nbsp;одной из&nbsp;страниц этого&nbsp;же сайта, пожалуйста,{" "}
+        <Link href="https://docs.google.com/forms/d/e/1FAIpQLScrzauOuVwNKqYEd3UCeM_ihMCknTRKvfvNLIDRj6b2r8cp9A/viewform">
+          <a className="error-page-link" target="_blank">
+            сообщите мне
+          </a>
+        </Link>{" "}
+        об&nbsp;этом.
       </p>
     </div>
   );
