@@ -4,14 +4,41 @@ import Layout from "../components/layout";
 import Error from "./_error";
 import dayjs from "dayjs";
 
+const cache = {};
 const notes = require("../data/index");
 
-function Article({ post }) {
-  if (!post) {
+const fetchNote = async (slug, req = null) => {
+  // let baseUrl = req ? `${req.protocol}://${req.get("Host")}` : "";
+  // let data = await fetch(baseUrl + "relativeURL");
+
+  let note = {};
+  let exists = notes.find(note => note.slug === slug);
+
+  if (exists) {
+    try {
+      note = (await import(`../data/posts/${slug}.md`)).default;
+    } catch (e) {}
+  }
+
+  note = { ...note, slug };
+
+  return note;
+};
+
+function Article(props) {
+  const { note } = props;
+
+  // check if client, if so store the data in the cache.
+  // If you don't do this check, there will be a separate cache stored on the server since Next.js does server side rendering as well.
+  if (process.browser) {
+    cache[note.slug] = note;
+  }
+
+  if (!note || !note.html) {
     return <Error statusCode={404} />;
   }
 
-  const { meta, html } = post;
+  const { meta, html } = note;
 
   return (
     <Layout>
@@ -46,22 +73,16 @@ function Article({ post }) {
   );
 }
 
-Article.getInitialProps = async ({ res, query: { slug } }) => {
-  const exists = notes.find(note => note.slug === slug);
+Article.getInitialProps = async ({ req, res, query: { slug } }) => {
+  // if data is in cache then use the cache
+  // if not, then fetch from server
+  const note = cache[slug] || (await fetchNote(slug, req));
 
-  let post = null;
-
-  if (exists) {
-    try {
-      post = (await import(`../data/posts/${slug}.md`)).default;
-    } catch (e) {}
-  }
-
-  if (!post && res) {
+  if (!note && res) {
     res.statusCode = 404;
   }
 
-  return { post };
+  return { note };
 };
 
 export default Article;
