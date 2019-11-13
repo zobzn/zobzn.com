@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
 @import "~normalize.css/normalize";
 @import "~prismjs/themes/prism";
+@import "~nprogress/nprogress";
 @import "./partial/variables";
 @import "./partial/mixins";
 
@@ -169,6 +170,22 @@ img:-moz-broken:not([alt]) {
   -moz-force-broken-image-icon: 1;
   height: 24px;
   width: 24px;
+}
+
+// ----------------------------------------------------------------------------
+// patches for nprogress
+
+#nprogress .bar {
+  background: #333;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #333, 0 0 5px #333;
+}
+
+#nprogress .spinner-icon {
+  border-top-color: #333;
+  border-left-color: #333;
 }
 
 // ----------------------------------------------------------------------------

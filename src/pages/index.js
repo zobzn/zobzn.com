@@ -2,7 +2,6 @@ import React from "react";
 import Link from "../components/link";
 import Head from "../components/head";
 import Layout from "../components/layout";
-import ZbzLink from "../components/zbz-link";
 
 const notes = require("../data/index");
 
@@ -21,8 +20,8 @@ export default function Home() {
         <ul className="homepage-columns__column-items zbz-links-list">
           {notes.map(({ slug, title }) => (
             <li key={slug} className={`zbz-links-list__item`}>
-              <Link href={`/[slug]`} as={`/${slug}`}>
-                <a className="zbz-link">{title}</a>
+              <Link href={`/[slug]`} as={`/${slug}`} className="zbz-link">
+                {title}
               </Link>
             </li>
           ))}
@@ -38,21 +37,21 @@ export default function Home() {
         может попасться и что-то интересное. Мало ли когда пригодится…
         <br />
         Если интересно, можете посмотреть{" "}
-        <a
+        <Link
           target="_blank"
           rel="noopener noreferrer"
           href="https://github.com/zobzn/"
         >
           мой github
-        </a>
+        </Link>
         , а если очень хочется, можете даже{" "}
-        <a
+        <Link
           target="_blank"
           rel="noopener noreferrer"
           href="https://docs.google.com/forms/d/e/1FAIpQLScrzauOuVwNKqYEd3UCeM_ihMCknTRKvfvNLIDRj6b2r8cp9A/viewform"
         >
           написать
-        </a>{" "}
+        </Link>{" "}
         мне что-нибудь.
       </p>
     </Layout>

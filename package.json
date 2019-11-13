@@ -30,6 +30,7 @@
     "dayjs": "^1.8.17",
     "framer-motion": "^1.6.15",
     "normalize.css": "^8.0.1",
+    "nprogress": "^0.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0"

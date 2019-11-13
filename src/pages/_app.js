@@ -4,11 +4,10 @@ import "../styles/app.scss";
 
 import App from "next/app";
 import Router from "next/router";
+import nprogress from "nprogress";
 import { AnimatePresence, motion } from "framer-motion";
 
 const transition = { duration: 0.2, ease: [0.43, 0.13, 0.23, 0.96] };
-// const transition = { duration: 0.1 };
-
 const variants = {
   hidden: {
     opacity: 0,
@@ -24,15 +23,18 @@ class ZbzApp extends App {
   state = { isLoading: false };
 
   onRouteChangeStart = url => {
+    nprogress.start();
     this.setState({ isLoading: true });
   };
 
   onRouteChangeComplete = () => {
     this.setState({ isLoading: false });
+    nprogress.done();
   };
 
   onRouteChangeError = () => {
     this.setState({ isLoading: false });
+    nprogress.done();
   };
 
   componentDidMount() {

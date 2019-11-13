@@ -23,13 +23,15 @@ export default function Header() {
         </h1>
       )}
       {!isHomepage && (
-        <Link href={`/`}>
-          <a className="site-head__title" data-site-title={siteTitle}></a>
-        </Link>
+        <Link
+          href={`/`}
+          className="site-head__title"
+          data-site-title={siteTitle}
+        ></Link>
       )}
       {isLocalHost && (
-        <Link href="/start">
-          <a className="zbz-link ml-3">Start</a>
+        <Link href="/start" className="zbz-link ml-3">
+          Start
         </Link>
       )}
     </header>

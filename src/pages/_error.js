@@ -26,9 +26,7 @@ const MyError = props => {
         <title>{title}</title>
       </Head>
       <h1>
-        <Link href={`/`}>
-          <a className="link-homepage"></a>
-        </Link>
+        <Link href={`/`} className="link-homepage"></Link>
         Страница не найдена
       </h1>
       <p className="para-bordered">
@@ -66,10 +64,12 @@ const MyError = props => {
         Если Вы считаете, что запрошенная Вами страница должна находиться
         по&nbsp;этому адресу или Вы перешли на&nbsp;нее по&nbsp;ссылке
         с&nbsp;одной из&nbsp;страниц этого&nbsp;же сайта, пожалуйста,{" "}
-        <Link href="https://docs.google.com/forms/d/e/1FAIpQLScrzauOuVwNKqYEd3UCeM_ihMCknTRKvfvNLIDRj6b2r8cp9A/viewform">
-          <a className="error-page-link" target="_blank">
-            сообщите мне
-          </a>
+        <Link
+          className="error-page-link"
+          target="_blank"
+          href="https://docs.google.com/forms/d/e/1FAIpQLScrzauOuVwNKqYEd3UCeM_ihMCknTRKvfvNLIDRj6b2r8cp9A/viewform"
+        >
+          сообщите мне
         </Link>{" "}
         об&nbsp;этом.
       </p>
