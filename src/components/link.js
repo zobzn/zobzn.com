@@ -1,32 +1,31 @@
+import React from "react";
 import NextLink from "next/link";
 
-export default class Link extends NextLink {
-  render() {
-    const {
-      href,
-      as,
-      replace,
-      scroll,
-      shallow,
-      passHref,
-      prefetch,
-      ...otherProps
-    } = this.props;
+export default function Link(props) {
+  const {
+    href,
+    as,
+    replace,
+    scroll,
+    shallow,
+    passHref,
+    prefetch,
+    ...otherProps
+  } = props;
 
-    const nextLinkProps = {
-      href,
-      as,
-      replace,
-      scroll,
-      shallow,
-      passHref,
-      prefetch
-    };
+  const nextLinkProps = {
+    href,
+    as,
+    replace,
+    scroll,
+    shallow,
+    passHref,
+    prefetch
+  };
 
-    return (
-      <NextLink {...nextLinkProps}>
-        <a {...otherProps} />
-      </NextLink>
-    );
-  }
+  return (
+    <NextLink {...nextLinkProps}>
+      <a {...otherProps} />
+    </NextLink>
+  );
 }
