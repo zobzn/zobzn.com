@@ -29,8 +29,8 @@ class MyDocument extends Document {
                   __html: [
                     `window.dataLayer = window.dataLayer || [];`,
                     `function gtag(){window.dataLayer.push(arguments)}`,
-                    `gtag("js", new Date());`
-                    // `gtag("config", "${GA_TRACKING_ID}");`
+                    `gtag("js", new Date());`,
+                    `gtag("config", "${GA_TRACKING_ID}");`
                   ].join("")
                 }}
               ></script>
