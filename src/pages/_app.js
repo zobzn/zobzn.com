@@ -6,6 +6,7 @@ import App from "next/app";
 import Router from "next/router";
 import nprogress from "nprogress";
 import { AnimatePresence, motion } from "framer-motion";
+import Analytics from "../components/analytics";
 
 const transition = { duration: 0.2, ease: [0.43, 0.13, 0.23, 0.96] };
 const variants = {
@@ -27,12 +28,12 @@ class ZbzApp extends App {
     this.setState({ isLoading: true });
   };
 
-  onRouteChangeComplete = () => {
+  onRouteChangeComplete = url => {
     this.setState({ isLoading: false });
     nprogress.done();
   };
 
-  onRouteChangeError = () => {
+  onRouteChangeError = (url, err) => {
     this.setState({ isLoading: false });
     nprogress.done();
   };
@@ -64,6 +65,7 @@ class ZbzApp extends App {
             exit="hidden"
           >
             <Component {...pageProps} />
+            <Analytics />
           </motion.div>
         )}
       </AnimatePresence>

@@ -43,8 +43,7 @@ function Article(props) {
   return (
     <Layout>
       <Head>
-        <title>ы</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>{meta.title}</title>
       </Head>
       <article>
         <div className="article-head">
