@@ -1,6 +1,7 @@
 export const GA_TRACKING_ID = "UA-47099248-1";
 
 function gtag() {
+  console.log(window, window.dataLayer, arguments);
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push(arguments);
 }
