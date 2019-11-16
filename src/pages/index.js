@@ -10,7 +10,6 @@ export default function Home() {
     <Layout>
       <Head>
         <title>ы</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <h2>Заметки</h2>
