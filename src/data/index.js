@@ -25,6 +25,11 @@ if (false) {
 
 module.exports = [
   {
+    slug: "ssh-keygen",
+    title: "Генерация ssh ключей",
+    date: "2019-11-17 12:21:05"
+  },
+  {
     slug: "http-tunnel-to-localhost",
     title: "http тоннель к localhost",
     date: "2019-11-17 12:13:21"
