@@ -25,6 +25,11 @@ if (false) {
 
 module.exports = [
   {
+    slug: "mini-http-server-for-dev",
+    title: "Мини http сервер на скорую руку",
+    date: "2019-11-17 09:12:34"
+  },
+  {
     slug: "adaptivnaya-verstka-bez-media-zaprosov",
     title: "Адаптивная верстка без медиа запросов",
     date: "2019-09-10 19:21"
