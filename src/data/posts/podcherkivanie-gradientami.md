@@ -3,7 +3,11 @@ title: Подчеркивание градиентами
 date: "2014-03-23 23:23:39"
 ---
 
-Оказывается, <span class="test-underline">подчеркивание</span> <span class="test-dashed">можно</span> <span class="test-dotted">делать</span> с помощью градиентов.
+Оказывается,
+<span class="test-underline">подчеркивание</span>
+<span class="test-dashed">можно</span>
+<span class="test-dotted">делать</span>
+с&nbsp;помощью градиентов.
 
 ```css
 .test-underline {
@@ -28,16 +32,12 @@ date: "2014-03-23 23:23:39"
 }
 ```
 
-А еще возможно когда-нибудь заработают css свойства <code class="test-decoration-color">text-decoration-color</code> и <code class="test-decoration-style">text-decoration-style</code>.
+А если нужно просто поменять цвет подчеркивания и&nbsp;не&nbsp;важна поддержка&nbsp;IE, то&nbsp;можно использовать css свойство
+<code class="test-text-decoration">text-decoration-color</code>.
 
 ```css
-.test-decoration-color {
+.test-text-decoration {
+  text-decoration: underline;
   text-decoration-color: #999;
-  text-decoration: underline;
-}
-
-.test-decoration-style {
-  text-decoration-style: dotted;
-  text-decoration: underline;
 }
 ```

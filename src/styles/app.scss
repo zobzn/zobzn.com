@@ -86,13 +86,13 @@ p {
 
 pre,
 pre[class*="language-"] {
-  margin: 0.5em 0 0.5em -1em;
+  margin: 0.5em -10px 0.5em -10px;
   white-space: pre-wrap;
   background: #f5f2f0;
+  padding: 12px 10px;
   text-shadow: none;
   display: block;
   overflow: auto;
-  padding: 1em;
   color: #000;
 }
 
@@ -101,8 +101,13 @@ pre::selection {
   text-shadow: none;
 }
 
+ul,
+ol {
+  padding: 0 0 0 1em;
+}
+
 ul {
-  padding: 0;
+  list-style-type: square;
 }
 
 li {
@@ -212,6 +217,24 @@ img:-moz-broken:not([alt]) {
 }
 
 // ----------------------------------------------------------------------------
+
+.zbz-links-list {
+  & {
+    list-style: none;
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    list-style: none;
+    display: block;
+    margin: 1em 0;
+    padding: 0;
+  }
+}
+
+// ----------------------------------------------------------------------------
 // layout
 
 .page-bone {
@@ -309,10 +332,6 @@ img:-moz-broken:not([alt]) {
 @import "blocks/zbz-button";
 @import "blocks/zbz-table";
 @import "blocks/zbz-input-clearable/zbz-input-clearable";
-@import "blocks/zbz-links-list";
-@import "blocks/text-link";
-@import "blocks/zbz-link";
-@import "blocks/js-link";
 @import "blocks/media-embed";
 
 // ----------------------------------------------------------------------------

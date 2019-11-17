@@ -32,7 +32,3 @@ document.all && window.XMLHttpRequest;
 ```javascript
 document.all && document.compatMode;
 ```
-
----
-
-- [Internet Explorer (IE) version detection in JavaScript](http://tanalin.com/en/articles/ie-version-js/)

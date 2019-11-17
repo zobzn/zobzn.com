@@ -35,21 +35,11 @@ date: "2014-03-12 22:41:27"
 
 ### smtp
 
-[Тестовая заглушка sendmail для php](/notes/testovaya-zaglushka-sendmail-dlya-php/)  
 [Test Mail Server Tool](http://www.toolheap.com/test-mail-server-tool/) — smtp сервер для тестов
 
 ### cmd, powershell
 
 [ansicon](https://github.com/adoxa/ansicon/downloads) — подсветка в консоли
-
-### nodejs
-
-Много полезного можно почерпнуть из мира js
-
-[node.js](https://nodejs.org/)  
-[gulp](http://gulpjs.com/)  
-[grunt](http://gruntjs.com/)  
-[bower](http://bower.io/)
 
 ### Пример простой настройки apache (`httpd.conf`)
 

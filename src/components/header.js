@@ -30,7 +30,7 @@ export default function Header() {
         ></Link>
       )}
       {isLocalHost && (
-        <Link href="/start" className="zbz-link ml-3">
+        <Link href="/start" className="zbz-link ml-16">
           Start
         </Link>
       )}

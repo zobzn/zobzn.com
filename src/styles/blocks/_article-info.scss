@@ -39,19 +39,5 @@
     &:first-child:before {
       content: "";
     }
-
-    :link,
-    :visited {
-      background: linear-gradient(
-          to right,
-          $link-underline-color,
-          $link-underline-color 100%
-        )
-        repeat-x 0 #{$link-underline-position-y} / 10px 1px;
-      text-shadow: 1px 0 $page-bg-color, 2px 0 $page-bg-color,
-        -1px 0 $page-bg-color, -2px 0 $page-bg-color;
-      text-decoration: none;
-      border: none;
-    }
   }
 }

@@ -1,79 +1,161 @@
 @import "./_variables.scss";
 @import "./_breakpoints.scss";
 
-$spacer: 1rem !default;
+$border-radiuses: (0, 1, 2, 3, 4, 5, 6, 8, 10, 15, 16, 20, 24, 25) !default;
+
 $spacers: (
-  0: 0,
-  1: (
-    $spacer * 0.25
-  ),
-  2: (
-    $spacer * 0.5
-  ),
-  3: $spacer,
-  4: (
-    $spacer * 1.5
-  ),
-  5: (
-    $spacer * 3
-  )
+  0,
+  4,
+  5,
+  8,
+  10,
+  15,
+  16,
+  20,
+  24,
+  25,
+  30,
+  32,
+  40,
+  48,
+  50,
+  60,
+  64,
+  70,
+  80,
+  90,
+  100
 ) !default;
 
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
+    $prefix: breakpoint-prefix($breakpoint, $grid-breakpoints);
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
-    @each $prop, $abbrev in (margin: m, padding: p) {
-      @each $size, $length in $spacers {
-        .#{$abbrev}#{$infix}-#{$size} {
-          #{$prop}: $length !important;
-        }
+    @each $size in $spacers {
+      .#{$prefix}m-#{$size} {
+        margin: #{$size}px !important;
+      }
 
-        .#{$abbrev}t#{$infix}-#{$size},
-        .#{$abbrev}y#{$infix}-#{$size} {
-          #{$prop}-top: $length !important;
-        }
+      .#{$prefix}p-#{$size} {
+        padding: #{$size}px !important;
+      }
+    }
 
-        .#{$abbrev}r#{$infix}-#{$size},
-        .#{$abbrev}x#{$infix}-#{$size} {
-          #{$prop}-right: $length !important;
-        }
+    @each $size in $spacers {
+      .#{$prefix}mt-#{$size},
+      .#{$prefix}my-#{$size} {
+        margin-top: #{$size}px !important;
+      }
 
-        .#{$abbrev}b#{$infix}-#{$size},
-        .#{$abbrev}y#{$infix}-#{$size} {
-          #{$prop}-bottom: $length !important;
-        }
+      .#{$prefix}mr-#{$size},
+      .#{$prefix}mx-#{$size} {
+        margin-right: #{$size}px !important;
+      }
 
-        .#{$abbrev}l#{$infix}-#{$size},
-        .#{$abbrev}x#{$infix}-#{$size} {
-          #{$prop}-left: $length !important;
-        }
+      .#{$prefix}mr--#{$size},
+      .#{$prefix}mx--#{$size} {
+        margin-right: -#{$size}px !important;
+      }
+
+      .#{$prefix}mb-#{$size},
+      .#{$prefix}my-#{$size} {
+        margin-bottom: #{$size}px !important;
+      }
+
+      .#{$prefix}ml-#{$size},
+      .#{$prefix}mx-#{$size} {
+        margin-left: #{$size}px !important;
+      }
+
+      .#{$prefix}ml--#{$size},
+      .#{$prefix}mx--#{$size} {
+        margin-left: -#{$size}px !important;
+      }
+    }
+
+    @each $size in $spacers {
+      .#{$prefix}pt-#{$size},
+      .#{$prefix}py-#{$size} {
+        padding-top: #{$size}px !important;
+      }
+
+      .#{$prefix}pr-#{$size},
+      .#{$prefix}px-#{$size} {
+        padding-right: #{$size}px !important;
+      }
+
+      .#{$prefix}pb-#{$size},
+      .#{$prefix}py-#{$size} {
+        padding-bottom: #{$size}px !important;
+      }
+
+      .#{$prefix}pl-#{$size},
+      .#{$prefix}px-#{$size} {
+        padding-left: #{$size}px !important;
       }
     }
 
     // Some special margin utils
-    .m#{$infix}-auto {
+    .#{$prefix}m-auto {
       margin: auto !important;
     }
 
-    .mt#{$infix}-auto,
-    .my#{$infix}-auto {
+    .#{$prefix}mt-auto,
+    .#{$prefix}my-auto {
       margin-top: auto !important;
     }
 
-    .mr#{$infix}-auto,
-    .mx#{$infix}-auto {
+    .#{$prefix}mr-auto,
+    .#{$prefix}mx-auto {
       margin-right: auto !important;
     }
 
-    .mb#{$infix}-auto,
-    .my#{$infix}-auto {
+    .#{$prefix}mb-auto,
+    .#{$prefix}my-auto {
       margin-bottom: auto !important;
     }
 
-    .ml#{$infix}-auto,
-    .mx#{$infix}-auto {
+    .#{$prefix}ml-auto,
+    .#{$prefix}mx-auto {
       margin-left: auto !important;
+    }
+  }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $prefix: breakpoint-prefix($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @each $size in $border-radiuses {
+      .#{$prefix}rc-#{$size},
+      .#{$prefix}rc-t-#{$size},
+      .#{$prefix}rc-l-#{$size},
+      .#{$prefix}rc-tl-#{$size} {
+        border-top-left-radius: #{$size}px;
+      }
+
+      .#{$prefix}rc-#{$size},
+      .#{$prefix}rc-t-#{$size},
+      .#{$prefix}rc-r-#{$size},
+      .#{$prefix}rc-tr-#{$size} {
+        border-top-right-radius: #{$size}px;
+      }
+
+      .#{$prefix}rc-#{$size},
+      .#{$prefix}rc-b-#{$size},
+      .#{$prefix}rc-r-#{$size},
+      .#{$prefix}rc-br-#{$size} {
+        border-bottom-right-radius: #{$size}px;
+      }
+
+      .#{$prefix}rc-#{$size},
+      .#{$prefix}rc-b-#{$size},
+      .#{$prefix}rc-l-#{$size},
+      .#{$prefix}rc-bl-#{$size} {
+        border-bottom-left-radius: #{$size}px;
+      }
     }
   }
 }
