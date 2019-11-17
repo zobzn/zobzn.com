@@ -171,11 +171,6 @@ module.exports = [
     date: "2014-06-15 23:44:10"
   },
   {
-    slug: "psevdoelementy-i-psevdoklassy-v-css",
-    title: "Псевдоэлементы и псевдоклассы в css",
-    date: "2014-06-15 12:42:28"
-  },
-  {
     slug: "podcherkivanie-gradientami",
     title: "Подчеркивание градиентами",
     date: "2014-03-23 23:23:39"
