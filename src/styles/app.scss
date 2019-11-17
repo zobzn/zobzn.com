@@ -256,9 +256,9 @@ img:-moz-broken:not([alt]) {
     $screen-xl-min
   );
 
-  min-height: calc(100vh - 1px);
   flex-direction: column;
   flex-wrap: nowrap;
+  min-height: 100vh;
   display: flex;
   margin: 0;
 }

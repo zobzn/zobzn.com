@@ -64,13 +64,13 @@ const MyError = props => {
         Если Вы считаете, что запрошенная Вами страница должна находиться
         по&nbsp;этому адресу или Вы перешли на&nbsp;нее по&nbsp;ссылке
         с&nbsp;одной из&nbsp;страниц этого&nbsp;же сайта, пожалуйста,{" "}
-        <Link
+        <a
           className="error-page-link"
           target="_blank"
           href="https://docs.google.com/forms/d/e/1FAIpQLScrzauOuVwNKqYEd3UCeM_ihMCknTRKvfvNLIDRj6b2r8cp9A/viewform"
         >
           сообщите мне
-        </Link>{" "}
+        </a>{" "}
         об&nbsp;этом.
       </p>
     </div>

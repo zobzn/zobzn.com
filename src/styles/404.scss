@@ -4,10 +4,11 @@
   & {
     font-family: Verdana, sans-serif;
     line-height: 1.375;
-    font-size: 0.6rem;
-    max-width: 22rem;
-    margin: 1.5rem;
+    max-width: 26rem;
+    font-size: 11px;
+    padding: 1.5rem;
     color: black;
+    margin: 0;
   }
 
   h1 {
@@ -21,7 +22,7 @@
 
   ul {
     list-style-type: square;
-    margin: 1rem 0 1rem 2rem;
+    margin: 1rem 0 1rem 1rem;
     padding: 0;
   }
 
