@@ -25,6 +25,11 @@ if (false) {
 
 module.exports = [
   {
+    slug: "http-tunnel-to-localhost",
+    title: "http тоннель к localhost",
+    date: "2019-11-17 12:13:21"
+  },
+  {
     slug: "mini-http-server-for-dev",
     title: "Мини http сервер на скорую руку",
     date: "2019-11-17 09:12:34"
@@ -191,11 +196,6 @@ module.exports = [
     date: "2014-03-05 23:37:08"
   },
   { slug: "css-clearfix", title: "css clearfix", date: "2014-03-05 23:34:53" },
-  {
-    slug: "skrytie-elementov-option-v-select-spiske-s-pomoshhyu-jquery",
-    title: "Скрытие элементов option в select списке с помощью jquery",
-    date: "2014-03-05 23:09:59"
-  },
   {
     slug: "poleznosti-v-xslt",
     title: "Полезности в XSLT",
