@@ -25,6 +25,11 @@ if (false) {
 
 module.exports = [
   {
+    slug: "css-grid-layout",
+    title: "css grid layout",
+    date: "2019-11-18 17:09:20"
+  },
+  {
     slug: "ssh-keygen",
     title: "Генерация ssh ключей",
     date: "2019-11-17 12:21:05"
