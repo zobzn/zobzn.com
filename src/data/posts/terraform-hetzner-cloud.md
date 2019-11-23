@@ -124,3 +124,7 @@ date: "2019-11-23 10:47:34"
 
 Пример готового проекта.  
 https://github.com/zobzn/terraform-hetzner-cloud
+
+<!--
+На основе https://computingforgeeks.com/deploy-vm-instances-on-hetzner-cloud-with-terraform/
+-->
