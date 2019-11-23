@@ -25,6 +25,11 @@ if (false) {
 
 module.exports = [
   {
+    slug: "terraform-hetzner-cloud",
+    title: "Быстрый старт с terraform и hetzner cloud",
+    date: "2019-11-23 10:47:34"
+  },
+  {
     slug: "css-grid-layout",
     title: "css grid layout",
     date: "2019-11-18 17:09:20"
