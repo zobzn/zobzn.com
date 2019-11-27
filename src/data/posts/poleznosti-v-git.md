@@ -119,3 +119,11 @@ git config --global core.safecrlf false
 git config --global core.quotepath false
 git config --global core.editor = notepad
 ```
+
+<!--
+сгенерировать token для composer
+https://github.com/settings/tokens
+
+указать токен для composer
+composer config --global github-oauth.github.com 2983569283568927365987236598
+-->

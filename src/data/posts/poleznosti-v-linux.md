@@ -22,6 +22,12 @@ find . -type f -name "*.php"
 find . -type f -regex '.*\.\(gif\|png\|jpg\|jpeg\)'
 ```
 
+Найти картинки по маске с размером менее, чем 1024x768
+
+```bash
+find . -iname "*.jpg" -type f -exec identify -format '%w %h %i' '{}' \; | awk '$1<1024 || $2<768'
+```
+
 Найти и удалить файлы по маске
 
 ```bash
@@ -49,13 +55,13 @@ find . -type d -exec chmod 755 {} \;
 Удалить содержимое директории
 
 ```bash
-rm -r ./somedir/*
+rm -rf ./somedir/*
 ```
 
 Удалить директорию со всем содержимым
 
 ```bash
-rm -r ./somedir
+rm -rf ./somedir
 ```
 
 Распаковать zip архив в текущую директорию
@@ -83,6 +89,18 @@ du -shm
 
 ```bash
 watch -n 1 'ps aux | grep grep'
+```
+
+Зациклить выполнение команды (с интервалом в 1 секунду между запусками)
+
+```bash
+while :; do echo `date`; sleep 1; done
+
+# или тоже самое в несколько строк
+while true; do
+    echo `date`
+    sleep 1
+done
 ```
 
 Аналог pause из windows ([источник](https://stackoverflow.com/questions/92802/what-is-the-linux-equivalent-to-dos-pause))
