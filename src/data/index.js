@@ -25,6 +25,11 @@ if (false) {
 
 module.exports = [
   {
+    slug: "razdat-internet-po-wifi-windows",
+    title: "Раздача интернета по wifi из windows",
+    date: "2019-12-02 13:43:56"
+  },
+  {
     slug: "terraform-hetzner-cloud",
     title: "Быстрый старт с terraform и hetzner cloud",
     date: "2019-11-23 10:47:34"
