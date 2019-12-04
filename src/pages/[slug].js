@@ -41,7 +41,7 @@ function Article(props) {
   const { meta, html } = note;
 
   return (
-    <Layout>
+    <Layout classNames={{ [`note-${note.slug}`]: true }}>
       <Head>
         <title>{meta.title}</title>
       </Head>

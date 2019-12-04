@@ -17,39 +17,47 @@
 
 // ----------------------------------------------------------------------------
 
+:root {
+  --page-bg: #fff;
+  --selection-bg: #338fff; // #b3d4fc
+  --selection-color: #fff;
+  --pre-bg: #f5f2f0;
+  --text-color: #000;
+  --quotes-color: #494949;
+  --links-undeline-color: #{$link-underline-color};
+  --links-normal-color: #{$link-color};
+  --links-hover-color: #{$link-color-hover};
+  --logo-text: "Ы";
+}
+
+// ----------------------------------------------------------------------------
+
 body {
-  background: #fff;
+  background: var(--page-bg);
+  color: var(--text-color);
   hyphens: auto;
-  color: #000;
 }
 
 // ----------------------------------------------------------------------------
 // basic content
 
-::selection {
-  // from prismjs
-  // background-color: #b3d4fc;
-  background-color: #338fff;
-  text-shadow: none;
-  color: #fff;
-}
-
 :link,
 :visited {
   & {
-    text-decoration-color: $link-underline-color;
-    color: $link-color;
+    text-decoration-color: var(--links-undeline-color);
+    color: var(--links-normal-color);
   }
 
   &:hover {
-    color: $link-color-hover;
+    color: var(--links-hover-color);
   }
+}
 
-  &::selection {
-    background-color: #338fff;
-    text-shadow: none;
-    color: #fff;
-  }
+::selection {
+  text-decoration-color: var(--links-undeline-color);
+  background-color: var(--selection-bg);
+  color: var(--selection-color);
+  text-shadow: none;
 }
 
 h1,
@@ -75,7 +83,7 @@ hr {
 }
 
 blockquote {
-  color: #494949;
+  color: var(--quotes-color);
 }
 
 p {
@@ -89,6 +97,7 @@ pre[class*="language-"] {
   margin: 0.5em -10px 0.5em -10px;
   white-space: pre-wrap;
   background: #f5f2f0;
+  background: var(--pre-bg);
   padding: 12px 10px;
   text-shadow: none;
   display: block;
@@ -238,6 +247,9 @@ img:-moz-broken:not([alt]) {
 // layout
 
 .page-bone {
+  background: var(--page-bg);
+  color: var(--text-color);
+
   font: 18px/1.4 $font-sans;
 
   @include adaptive-property(
@@ -303,6 +315,7 @@ img:-moz-broken:not([alt]) {
 
     &:after {
       content: "Ы";
+      content: var(--logo-text);
     }
   }
 
@@ -318,6 +331,132 @@ img:-moz-broken:not([alt]) {
       -1px 0 $page-bg-color, -2px 0 $page-bg-color;
     text-decoration: none;
     border: none;
+  }
+}
+
+// ----------------------------------------------------------------------------
+
+.note-razdat-internet-po-wifi-windows {
+  --logo-text: "👍";
+  --text-color: green;
+  --pre-bg: LightYellow;
+
+  :link,
+  :visited {
+    background: transparent;
+    text-decoration: none;
+    text-shadow: none;
+  }
+}
+
+.note-terraform-hetzner-cloud {
+  --text-color: olive;
+  --pre-bg: AliceBlue;
+}
+
+.note-css-grid-layout {
+  --logo-text: "🏠";
+  --text-color: blue;
+  --pre-bg: azure;
+
+  :link,
+  :visited {
+    background: transparent;
+    text-decoration: none;
+    text-shadow: none;
+  }
+}
+
+.note-ssh-keygen {
+  --page-bg: #333;
+  --selection-bg: magenta;
+  --text-color: gold;
+  --quotes-color: lightblue;
+  --links-underline-color: #fff;
+  --links-normal-color: lightgreen;
+  --links-hover-color: cyan;
+
+  :link,
+  :visited {
+    text-decoration-color: currentColor;
+    background: transparent;
+    text-shadow: none;
+  }
+
+  .site-head__title:link,
+  .site-head__title:visited {
+    text-shadow: none;
+  }
+}
+
+.note-http-tunnel-to-localhost {
+  --page-bg: silver;
+
+  .site-head__title:link,
+  .site-head__title:visited {
+    text-shadow: none;
+  }
+}
+
+.note-mini-http-server-for-dev {
+  --page-bg: DarkTurquoise;
+  --pre-bg: aqua;
+
+  .site-head__title:link,
+  .site-head__title:visited {
+    text-shadow: none;
+  }
+}
+
+.note-adaptivnaya-verstka-bez-media-zaprosov {
+  --pre-bg: Lavender;
+}
+
+.note-adaptivnyy-razmer-shrifta-s-ogranicheniem {
+  .site-head__title::after {
+    content: "На главную";
+  }
+}
+
+.note-poleznosti-v-git {
+  --links-underline-color: #fff;
+  --links-normal-color: DeepSkyBlue;
+  --links-hover-color: fuchsia;
+
+  .site-head__title {
+    font-size: 3em;
+  }
+
+  :link,
+  :visited {
+    background: transparent;
+    text-decoration: none;
+    text-shadow: none;
+  }
+}
+
+.note-poleznosti-v-docker {
+  --logo-text: "🍪";
+
+  :link,
+  :visited {
+    background: transparent;
+    text-decoration: none;
+    text-shadow: none;
+  }
+}
+
+.note-poleznosti-v-linux {
+  --logo-text: "黄";
+
+  .site-head__title:link,
+  .site-head__title:visited {
+    background: transparent;
+    text-decoration: none;
+    text-shadow: none;
+  }
+  .site-head__title::after {
+    font-weight: bold;
   }
 }
 

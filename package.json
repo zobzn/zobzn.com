@@ -27,6 +27,7 @@
     "unified": "^8.4.1"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "dayjs": "^1.8.17",
     "framer-motion": "^1.6.17",
     "normalize.css": "^8.0.1",
