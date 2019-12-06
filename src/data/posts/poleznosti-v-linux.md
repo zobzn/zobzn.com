@@ -64,6 +64,36 @@ rm -rf ./somedir/*
 rm -rf ./somedir
 ```
 
+Замена текста регулярным выражением (по строкам)
+
+```bash
+cat some-file.txt | sed -E 's/man.+ger/manAger/'
+```
+
+Замена текста регулярным выражением (во всем текст целиком и без учета регистра)
+
+```bash
+cat some-file.txt | perl -p0e 's/man.+ger/manAger/si'
+```
+
+Работа с таблицами (получить первую и последнюю колонку таблицы, пронумеровав при этом строки)
+
+```bash
+awk '{print NR " - " $1 "\t- " $NF}' some-file.txt
+```
+
+Получить строки с третьей по шестую
+
+```bash
+awk 'NR==3, NR==6 {print NR,$0}' some-file.txt
+```
+
+Посчитать количество строк в файле
+
+```bash
+awk 'END { print NR }' some-file.txt
+```
+
 Распаковать zip архив в текущую директорию
 
 ```bash
