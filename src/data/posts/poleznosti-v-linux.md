@@ -121,6 +121,16 @@ du -shm
 watch -n 1 'ps aux | grep grep'
 ```
 
+Условия
+
+```bash
+if [ "foo" = "foo" ]; then
+    echo true
+else
+    echo false
+fi
+```
+
 Зациклить выполнение команды (с интервалом в 1 секунду между запусками)
 
 ```bash
@@ -131,6 +141,20 @@ while true; do
     echo `date`
     sleep 1
 done
+```
+
+Выполнить одну комманд по ssh
+
+```bash
+ssh -T -i user-key.ssh user@${s} date
+```
+
+Выполнить несколько комманд по ssh
+
+```bash
+ssh -T -i user-key.ssh user@server << ENDSSH
+    date
+ENDSSH
 ```
 
 Аналог pause из windows ([источник](https://stackoverflow.com/questions/92802/what-is-the-linux-equivalent-to-dos-pause))
@@ -151,4 +175,19 @@ read -rp $'Are you sure (Y/n): ' -ei $'Y' key;
 
 # Timeout solution (with -t 5)
 read -rsp $'Press any key or wait 5 seconds to continue...\n' -n 1 -t 5;
+```
+
+Спрашиваем разрешение для продолжения выполнения
+
+```bash
+echo
+read -rp "Are you sure you want to continue? " confirmed
+echo
+if [[ $confirmed =~ ^[Yy]$ ]]
+then
+    echo "Okay. Let's get started..."
+else
+    echo "Okay. Maybe next time..."
+    exit 1
+fi
 ```
