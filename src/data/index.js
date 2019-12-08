@@ -25,6 +25,11 @@ if (false) {
 
 module.exports = [
   {
+    slug: "mkcert",
+    title: "Создание валидного https сертификата для локального домена",
+    date: "2019-12-08 20:18:42"
+  },
+  {
     slug: "razdat-internet-po-wifi-windows",
     title: "Раздача интернета по wifi из windows",
     date: "2019-12-02 13:43:56"
