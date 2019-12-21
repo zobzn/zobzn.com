@@ -76,7 +76,7 @@ module.exports = [
     date: "2019-08-31 11:18:23"
   },
   {
-    slug: "poleznosti-v-git",
+    slug: "git-cheatsheet",
     title: "Полезности в git",
     date: "2019-08-11 06:20:22"
   },
