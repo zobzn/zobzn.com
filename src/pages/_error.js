@@ -66,6 +66,7 @@ const MyError = props => {
         с&nbsp;одной из&nbsp;страниц этого&nbsp;же сайта, пожалуйста,{" "}
         <a
           className="error-page-link"
+          rel="noopener noreferrer"
           target="_blank"
           href="https://docs.google.com/forms/d/e/1FAIpQLScrzauOuVwNKqYEd3UCeM_ihMCknTRKvfvNLIDRj6b2r8cp9A/viewform"
         >

@@ -2,6 +2,7 @@
 // https://github.com/zeit/next-plugins/issues/282
 import "../styles/app.scss";
 
+import React from "react";
 import App from "next/app";
 import Router from "next/router";
 import nprogress from "nprogress";
@@ -23,17 +24,17 @@ const variants = {
 class ZbzApp extends App {
   state = { isLoading: false };
 
-  onRouteChangeStart = url => {
+  onRouteChangeStart = () => {
     nprogress.start();
     this.setState({ isLoading: true });
   };
 
-  onRouteChangeComplete = url => {
+  onRouteChangeComplete = () => {
     this.setState({ isLoading: false });
     nprogress.done();
   };
 
-  onRouteChangeError = (url, err) => {
+  onRouteChangeError = () => {
     this.setState({ isLoading: false });
     nprogress.done();
   };

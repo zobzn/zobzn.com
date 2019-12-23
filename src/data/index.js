@@ -1,27 +1,27 @@
-if (false) {
-  const tmp = require.context("./posts", true, /\.md$/);
+// if (false) {
+//   const tmp = require.context("./posts", true, /\.md$/);
 
-  const items = tmp
-    .keys()
-    .map(k => {
-      return {
-        slug: k.substr(2).split(/[\.\/]/)[0],
-        title: tmp(k).data.title || null,
-        date: tmp(k).data.date || null
-      };
-    })
-    .sort((a, b) => {
-      if (a.date < b.date) {
-        return 1;
-      } else if (a.date > b.date) {
-        return -1;
-      } else {
-        return 0;
-      }
-    });
+//   const items = tmp
+//     .keys()
+//     .map(k => {
+//       return {
+//         slug: k.substr(2).split(/[\.\/]/)[0],
+//         title: tmp(k).data.title || null,
+//         date: tmp(k).data.date || null
+//       };
+//     })
+//     .sort((a, b) => {
+//       if (a.date < b.date) {
+//         return 1;
+//       } else if (a.date > b.date) {
+//         return -1;
+//       } else {
+//         return 0;
+//       }
+//     });
 
-  console.log(JSON.stringify(items));
-}
+//   console.log(JSON.stringify(items));
+// }
 
 module.exports = [
   {

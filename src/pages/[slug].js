@@ -7,7 +7,7 @@ import dayjs from "dayjs";
 const cache = {};
 const notes = require("../data/index");
 
-const fetchNote = async (slug, req = null) => {
+const fetchNote = async slug => {
   // let baseUrl = req ? `${req.protocol}://${req.get("Host")}` : "";
   // let data = await fetch(baseUrl + "relativeURL");
 
@@ -17,7 +17,9 @@ const fetchNote = async (slug, req = null) => {
   if (exists) {
     try {
       note = (await import(`../data/posts/${slug}.md`)).default;
-    } catch (e) {}
+    } catch (e) {
+      note = {};
+    }
   }
 
   note = { ...note, slug };

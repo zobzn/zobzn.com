@@ -1,6 +1,7 @@
 // _document is only rendered on the server side and not on the client side
 // Event handlers like onClick can't be added to this file
 
+import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { GA_TRACKING_ID } from "../lib/gtag";
 
