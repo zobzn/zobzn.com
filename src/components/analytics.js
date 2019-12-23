@@ -7,7 +7,7 @@ export default function Analytics() {
 
   useEffect(() => {
     pageview(url);
-  }, []);
+  }, [url]);
 
   return <></>;
 }

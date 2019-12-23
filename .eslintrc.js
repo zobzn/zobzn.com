@@ -9,7 +9,7 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:prettier/recommended"
-    // "airbnb",
+    // "airbnb"
     // "wesbos"
   ],
   globals: {
@@ -23,9 +23,12 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "module"
   },
+  plugins: ["react-hooks"],
   rules: {
     // "no-console": 2,
     "react/prop-types": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "prettier/prettier": "error"
   },
   settings: {
