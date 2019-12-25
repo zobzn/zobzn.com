@@ -7,11 +7,12 @@ module.exports = {
   parser: "babel-eslint",
   extends: [
     "eslint:recommended",
+    "plugin:import/recommended",
     "plugin:react/recommended",
+    "plugin:jest/recommended",
     "plugin:prettier/recommended"
-    // "airbnb"
-    // "wesbos"
   ],
+  plugins: ["import", "react", "react-hooks", "jest", "prettier"],
   globals: {
     Atomics: "readonly",
     SharedArrayBuffer: "readonly"
@@ -23,7 +24,6 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "module"
   },
-  plugins: ["react-hooks"],
   rules: {
     // "no-console": 2,
     "react/prop-types": "off",
