@@ -7,7 +7,10 @@ function gtag() {
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export function pageview(url) {
-  if (process.env.NODE_ENV !== "production") {
+  if (
+    process.env.NODE_ENV !== "production" &&
+    process.env.NODE_ENV !== "test"
+  ) {
     console.log("pageview", url);
   }
 

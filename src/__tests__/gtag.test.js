@@ -1,4 +1,4 @@
-import { pageview } from "./gtag";
+import { pageview } from "../lib/gtag";
 
 it("works", () => {
   expect(window.dataLayer).toBeUndefined();
