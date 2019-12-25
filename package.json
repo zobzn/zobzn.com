@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "lint": "eslint --fix -- .",
+    "test": "jest",
     "build": "next build",
     "start": "next start",
     "nodemon": "nodemon --exec \"npm run dev\"",
@@ -16,17 +17,19 @@
     }
   },
   "lint-staged": {
-    "*.+(js|jsx)": [
+    "**/*.{js,jsx}": [
       "eslint --fix",
-      "git add"
+      "git add",
+      "jest --bail --findRelatedTests"
     ],
-    "*.+(yml|yaml|json|scss|md)": [
+    "**/*.{yml,yaml,json,scss,md}": [
       "prettier --write",
       "git add"
     ]
   },
   "devDependencies": {
     "@mapbox/rehype-prism": "^0.3.1",
+    "@types/jest": "^24.0.24",
     "@types/node": "^12.12.22",
     "@zeit/next-sass": "^1.0.1",
     "babel-eslint": "^10.0.3",
@@ -39,6 +42,7 @@
     "eslint-plugin-react-hooks": "^2.3.0",
     "gray-matter": "^4.0.2",
     "husky": "^3.1.0",
+    "jest": "^24.9.0",
     "lint-staged": "^9.5.0",
     "next": "^9.1.6",
     "node-sass": "^4.13.0",
