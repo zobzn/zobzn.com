@@ -26,7 +26,7 @@
 module.exports = [
   {
     slug: "fetch",
-    title: "Памятка по fetch",
+    title: "Примеры использования fetch",
     date: "2020-01-07 23:44:16"
   },
   {

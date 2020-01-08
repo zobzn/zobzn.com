@@ -1,9 +1,9 @@
 ---
-title: Памятка по fetch
+title: Примеры использования fetch
 date: "2020-01-07 23:44:16"
 ---
 
-## Чтение метаданных ответа
+### Чтение метаданных ответа
 
 ```js
 fetch("https://httpbin.org/json").then(response => {
@@ -14,7 +14,7 @@ fetch("https://httpbin.org/json").then(response => {
 });
 ```
 
-## Чтение текста ответа
+### Чтение текста ответа
 
 ```js
 fetch("https://httpbin.org/html")
@@ -22,7 +22,7 @@ fetch("https://httpbin.org/html")
   .then(data => console.log(data));
 ```
 
-## Чтение json ответа
+### Чтение json ответа
 
 ```js
 fetch("https://httpbin.org/json", {
@@ -35,7 +35,7 @@ fetch("https://httpbin.org/json", {
   .catch(ex => console.log("parsing failed", ex));
 ```
 
-## Отправка json
+### Отправка json
 
 ```js
 fetch("https://httpbin.org/post", {
@@ -45,11 +45,10 @@ fetch("https://httpbin.org/post", {
     "Content-Type": "application/json; charset=UTF-8"
   },
   body: JSON.stringify({ k: "v" })
-  // или qs.stringify для более сложных объектов
 });
 ```
 
-## Отправка формы
+### Отправка формы (`multipart/form-data`)
 
 ```js
 const form = document.querySelector("form");
@@ -60,7 +59,29 @@ fetch("https://httpbin.org/post", {
 });
 ```
 
-## Отправка отдельного файла из формы
+### Отправка формы (`application/x-www-form-urlencoded`) вариант 1
+
+```js
+fetch("https://httpbin.org/post", {
+  method: "POST",
+  body: new URLSearchParams({ k1: "v1", k2: "v2" })
+});
+```
+
+### Отправка формы (`application/x-www-form-urlencoded`) вариант 2
+
+```js
+fetch("https://httpbin.org/post", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+  },
+  body: "k1=v1&k2=v2"
+  // body: qs.stringify({ k1: "v1", k2: "v2" })
+});
+```
+
+### Отправка отдельного файла из формы
 
 ```js
 const input = document.querySelector('input[type="file"]');
@@ -73,7 +94,7 @@ fetch("https://httpbin.org/post", {
 });
 ```
 
-## Отправка файла, созданного на лету
+### Отправка файла, созданного на лету
 
 ```js
 const file = new Blog(["Проверка"], { type: "text/plain" });
@@ -86,7 +107,7 @@ fetch("https://httpbin.org/post", {
 });
 ```
 
-## Отправка cookies
+### Отправка cookies
 
 Если нужна отправка cookies, то лучше не полагаться на значение по умолчанию,
 а явно указывать `credentials: "same-origin"` (либо `include` при CORS запросах).
@@ -100,20 +121,45 @@ fetch("https://httpbin.org/post", {
 });
 ```
 
-## Отмена запроса
+### Basic авторизация
+
+```js
+function base64(str) {
+  if (Buffer && Buffer.from) {
+    return Buffer.from(username + ":" + password).toString("base64");
+  } else if (btoa) {
+    return btoa(str);
+  } else {
+    throw new Error("");
+  }
+}
+
+fetch("https://httpbin.org/basic-auth/user/passwd", {
+  headers: {
+    Authorization: "Basic " + base64("user:passwd")
+  }
+});
+```
+
+### Отмена запроса
 
 ```js
 const abortController = new AbortController();
 
-fetch("https://httpbin.org/post", {
-  method: "POST",
+fetch("https://httpbin.org/", {
   signal: abortController.signal
+}).catch(err => {
+  if (err.name == "AbortError") {
+    console.log("Aborted!", err);
+  } else {
+    throw err;
+  }
 });
 
 setTimeout(() => abortController.abort(), 0);
 ```
 
-## Обработка http статусов ответа
+### Обработка http статусов ответа
 
 У fetch есть особенность, из-за которой он не генерирует ошибку в зависимости от http статуса ответа.
 Это поведение можно изменить, например, таким сопособом.
@@ -135,25 +181,3 @@ fetch("https://httpbin.org/json")
   .then(data => console.log("request succeeded with JSON response", data))
   .catch(error => console.log("request failed", error));
 ```
-
-## Краткая сводка опций запроса
-
-- method - GET, POST, PUT, DELETE, HEAD
-- url - URL of the request
-- headers - associated Headers object
-- referrer - referrer of the request
-- mode - cors, no-cors, same-origin
-- credentials - should cookies go with the request? same-origin, include, omit
-- redirect - follow, error, manual
-- integrity - subresource integrity value
-- cache - cache mode (default, reload, no-cache)
-
-## Краткая сводка полей ответа
-
-- type - basic, cors
-- url
-- useFinalURL - Boolean for if url is the final URL
-- ok - Boolean for successful response (status in the range 200-299)
-- status - status code (ex: 200, 404, etc.)
-- statusText - status code (ex: OK)
-- headers - Headers object associated with the response.
