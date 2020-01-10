@@ -34,8 +34,10 @@ date: "2019-08-11 06:20:22"
 | `cat .git/HEAD`                                                    | показать на что указывает HEAD                                                              |
 | `git branch -a`                                                    | показать список веток                                                                       |
 | `git branch -a -v`                                                 | показать список веток с комментарием из последнего коммита                                  |
-| `git branch [name]`                                                | создать новую ветку на основе текущей                                                       |
+| `git branch [new-name]`                                            | создать новую ветку на основе текущей                                                       |
 | `git branch [new-name] [old-name]`                                 | создать новую ветку на основе указанной (например, на основе origin/branch-name)            |
+| `git branch -b [new-name]`                                         | создать новую ветку на основе текущей и переключиться на нее                                |
+| `git branch -b [new-name] [old-name]`                              | создать новую ветку на основе указанной и переключиться на нее                              |
 | `git checkout [name]`                                              | переключиться на ветку (фактически направить HEAD на указанную ветку)                       |
 | `git cherry -v [name]`                                             | показать коммиты в текущей ветке, которых нет в указанной                                   |
 | `git cherry -v HEAD [name]`                                        | показать коммиты в указанной ветке, которых нет в текущей                                   |
@@ -90,10 +92,11 @@ date: "2019-08-11 06:20:22"
 | `git stash apply`                                                  |                                                                                             |
 | `git gc`                                                           |                                                                                             |
 
-И бонусом небольшой алиас для однострочных логов
+И бонусом парочка небольших алиасов для однострочных логов
 
 ```bash
-git config --global alias.lg 'log --pretty=format:"%C(Yellow)%h%C(reset) %C(Cyan)%ae%C(reset) %C(Green)(%cr)%C(reset) %C(White)%s%C(reset)" --graph'
+git config --global alias.lg "log --pretty=format:'%C(Yellow)%h%C(reset) %C(Cyan)%ae%C(reset) %C(Green)(%cr)%C(reset) %C(White)%s%C(reset)' --graph --all"
+git config --global alias.lol "log --oneline --graph --decorate"
 ```
 
 <!--
@@ -103,6 +106,9 @@ todo:
 - git stash save "stash name" && git stash
 - git config --global alias.last 'log -1 HEAD'
 - git show HEAD~1
+- git lol iss53 ^master - какие коммиты есть в iss53 которых нет в master (== git cherry -v ?)
+- git lg --name-status - показать какие файлы менялись
+- git lg --stat - показать какие файлы менялись
 
 сгенерировать token для composer
 https://github.com/settings/tokens
