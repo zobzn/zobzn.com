@@ -72,6 +72,7 @@ date: "2019-08-11 06:20:22"
 | `git push origin [name]`                                           | запушить ветку или тег                                                                      |
 | `git push origin :[name]`                                          | удалить ветку или тег в origin репозитории (локальная ветка останется, если есть)           |
 | `git push origin :refs/tags/[tag-name]`                            | удалить тег в origin репозитории (вариант без путаницы с ветками)                           |
+| `git push origin --follow-tags`                                    | запушить теги с комментариями                                                               |
 | `git branch -u origin/[name]`                                      | привязать текущую локальную ветку к ветке в origin репозитории                              |
 | `git branch --unset-upstream`                                      | отвязать текущую локальную ветку от ветки в origin репозитории                              |
 | **Логи**                                                           |                                                                                             |
