@@ -1,13 +1,10 @@
 import React, { useEffect } from "react";
-import { useRouter } from "next/router";
-import { pageview } from "../lib/gtag";
+import { pageview } from "../lib/analytics";
 
 export default function Analytics() {
-  const { asPath: url } = useRouter();
-
   useEffect(() => {
-    pageview(url);
-  }, [url]);
+    pageview();
+  }, []);
 
   return <></>;
 }

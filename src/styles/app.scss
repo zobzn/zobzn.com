@@ -105,6 +105,19 @@ pre[class*="language-"] {
   color: #000;
 }
 
+pre,
+pre[class*="language-"],
+code {
+  font: 16px/1.3 $font-mono;
+  @include adaptive-property(
+    "font-size",
+    14px,
+    17px,
+    $page-width-320,
+    $screen-lg-min
+  );
+}
+
 pre::selection {
   background: #b3d4fc;
   text-shadow: none;
@@ -126,19 +139,6 @@ li {
 
 li li {
   margin-left: 1.5rem;
-}
-
-pre,
-pre[class*="language-"],
-code {
-  font: 16px/1.3 $font-mono;
-  @include adaptive-property(
-    "font-size",
-    14px,
-    17px,
-    $page-width-320,
-    $screen-lg-min
-  );
 }
 
 td,
@@ -207,22 +207,6 @@ img:-moz-broken:not([alt]) {
 
 .token.operator {
   background: transparent;
-}
-
-// ----------------------------------------------------------------------------
-// patches for gatsby
-
-.gatsby-resp-image-wrapper {
-  margin-right: 0 !important;
-  margin-left: 0 !important;
-}
-
-.task-list-item {
-  list-style: none;
-}
-
-.task-list-item p {
-  margin: 0;
 }
 
 // ----------------------------------------------------------------------------

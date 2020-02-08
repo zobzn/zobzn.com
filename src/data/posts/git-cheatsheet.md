@@ -120,25 +120,41 @@ composer config --global github-oauth.github.com 2983569283568927365987236598
 <style>
 
 .article-body table {
+    border-collapse: collapse;
     max-width: 100%;
     font-size: 14px;
 }
 
-.article-body table thead,
-.article-body table tfoot {
+.article-body thead,
+.article-body tfoot {
     display: none;
 }
 
-.article-body table td strong {
+.article-body tr {
+    border-bottom: 1px solid #eee;
+}
+
+.article-body tr:nth-child(2n) {
+    background-color: #fcfcfc;
+}
+
+.article-body table td,
+.article-body table td:first-child,
+.article-body table td:last-child {
+    padding: 0.75rem;
+}
+
+.article-body th:empty {
+    display: none;
+}
+
+.article-body td:empty {
+}
+
+.article-body table strong {
     font-weight: bold;
     font-size: 16px;
 }
-
-.article-body table th:empty,
-.article-body table td:empty {
-    display: none;
-}
-
 
 .article-body code {
     word-break: break-word;
@@ -154,14 +170,18 @@ composer config --global github-oauth.github.com 2983569283568927365987236598
     .article-body table tbody {
         display: block;
     }
-    .article-body table tr {
+    .article-body table tr,
+    .article-body table tr:nth-child(2n) {
+        background: transparent;
         flex-direction: column;
         margin: 20px 0;
         display: flex;
         border: none;
     }
     .article-body table th,
-    .article-body table td {
+    .article-body table td,
+    .article-body table td:first-child,
+    .article-body table td:last-child {
         display: block;
         margin: 2px 0;
         padding: 0;
