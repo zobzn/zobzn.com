@@ -1,8 +1,8 @@
 ---
 title: css clearfix
 date: 2014-03-05 23:34:53
-
 ---
+
 ### метод 1
 
 ```css

@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "lint": "eslint --fix -- .",
+    "lint": "eslint --fix -- ./src",
     "test": "jest --collect-coverage",
     "build": "npm run index && next build",
     "start": "next start",
+    "export": "npm run index && next build && next export",
     "nodemon": "nodemon --exec \"npm run dev\"",
     "prettier": "prettier --write \"**/*.{js,jsx,vue,json,yml,yaml,scss,md}\"",
     "index": "node ./src/scripts/build-index.js"
@@ -62,7 +63,7 @@
     "@analytics/google-tag-manager": "^0.2.1",
     "analytics": "^0.3.0",
     "classnames": "^2.2.6",
-    "dayjs": "^1.8.19",
+    "dayjs": "^1.8.23",
     "framer-motion": "^1.8.3",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
