@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "./header";
 import classnames from "classnames";
+import checkFonts from "../lib/check-fonts";
 
 const defaultClassNames = {
   "page-bone": true
@@ -9,6 +10,10 @@ const defaultClassNames = {
 
 export default function Layout({ classNames = {}, children }) {
   const combinedClassNames = Object.assign({}, defaultClassNames, classNames);
+
+  useEffect(() => {
+    checkFonts(["Fira Sans"]);
+  });
 
   return (
     <>

@@ -90,11 +90,13 @@ $base-font-size-max: 18px;
 // ----------------------------------------------------------------------------
 
 $font-mono: Consolas, "Andale Mono", "Courier New", monospace;
-$font-sans: "Fira Sans", "Segoe UI", "Times New Roman", sans-serif;
+$font-sans: "Segoe UI", "Times New Roman", sans-serif;
+$font-fira-sans: "Fira Sans", "Segoe UI", "Times New Roman", sans-serif;
 // $font-button: Arial, sans-serif;
 $font-site-head: Georgia, serif;
 $font-button: $font-sans;
-$font-title: "Fira Sans", "Trebuchet MS", "Segoe UI", "Times New Roman",
+$font-title: "Trebuchet MS", "Segoe UI", "Times New Roman", sans-serif;
+$font-title-fira: "Fira Sans", "Trebuchet MS", "Segoe UI", "Times New Roman",
   sans-serif;
 
 // ----------------------------------------------------------------------------

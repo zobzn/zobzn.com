@@ -1,6 +1,7 @@
 // workaround for bug with next-css
 // https://github.com/zeit/next-plugins/issues/282
 import "../styles/app.scss";
+import "../styles/404.scss";
 
 import React from "react";
 import App from "next/app";

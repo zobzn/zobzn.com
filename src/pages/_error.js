@@ -1,5 +1,3 @@
-import "../styles/404.scss";
-
 import React from "react";
 import Link from "../components/link";
 import Head from "../components/head";
