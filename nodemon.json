@@ -1,5 +1,12 @@
 {
   "verbose": false,
-  "watch": ["package.json", "nodemon.json", "next.config.js", "src/lib/*"],
-  "ignore": [".next/*", "node_modules/*", "package.json", "package-lock.json"]
+  "watch": [
+    ".babelrc",
+    "next.config.js",
+    "nodemon.json",
+    "package.json",
+    "package-lock.json",
+    "postcss.config.js"
+  ],
+  "ignore": [".next/*", "node_modules/*", "src/*"]
 }
