@@ -7,12 +7,11 @@
     "lint": "eslint --fix -- ./src",
     "test": "jest --collect-coverage",
     "clean": "rimraf .next/ out/",
-    "build": "npm run index && next build",
+    "build": "next build",
     "start": "next start",
-    "export": "npm run clean && npm run index && next build && next export",
+    "export": "npm run clean && next build && next export",
     "serve": "npx serve out -l 80",
-    "prettier": "prettier --write .",
-    "index": "node ./src/scripts/build-index.js"
+    "prettier": "prettier --write ."
   },
   "husky": {
     "hooks": {

@@ -2,10 +2,10 @@ import React from "react";
 import Link from "../components/link";
 import Head from "../components/head";
 import Layout from "../components/layout";
+import { getPostsInfo } from "../lib/posts";
+import dayjs from "dayjs";
 
-const notes = require("../data/index");
-
-export default function Home() {
+export default function Home({ notes }) {
   return (
     <Layout>
       <Head>
@@ -17,12 +17,17 @@ export default function Home() {
 
         {notes.length < 1 && <p>Все заметки куда-то потерялись… :-(</p>}
         {notes.length > 0 && (
-          <ul className="zbz-links-list">
-            {notes.map(({ slug, title }) => (
-              <li key={slug} className={`zbz-links-list__item`}>
-                <Link href={`/[slug]`} as={`/${slug}`} className="zbz-link">
+          <ul className="posts-list">
+            {notes.map(({ slug, title, dateFormatted }) => (
+              <li key={slug} className={`posts-list__item`}>
+                <Link
+                  href={`/[slug]`}
+                  as={`/${slug}`}
+                  className={`posts-list__item-link`}
+                >
                   {title}
                 </Link>
+                <div className={`posts-list__item-meta`}>{dateFormatted}</div>
               </li>
             ))}
           </ul>
@@ -57,4 +62,15 @@ export default function Home() {
       </section>
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const notes = (await getPostsInfo()).map((note) => ({
+    ...note,
+    dateFormatted: dayjs(note.date).format("MMMM YYYY"),
+  }));
+
+  return {
+    props: { notes },
+  };
 }

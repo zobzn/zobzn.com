@@ -88,6 +88,10 @@ hr {
 
 blockquote {
   color: var(--quotes-color);
+
+  border-left: 6px solid #bababa;
+  padding: 1px 0 1px 1.5em;
+  margin-left: 0;
 }
 
 p {
@@ -229,7 +233,7 @@ img:-moz-broken:not([alt]) {
 
 // ----------------------------------------------------------------------------
 
-.zbz-links-list {
+.posts-list {
   & {
     list-style: none;
     display: block;
@@ -240,8 +244,19 @@ img:-moz-broken:not([alt]) {
   &__item {
     list-style: none;
     display: block;
-    margin: 1em 0;
+    margin: 2em 0;
     padding: 0;
+  }
+
+  &__item-link {
+    text-decoration: none;
+    font-size: 1.2em;
+  }
+
+  &__item-meta {
+    margin-top: 0.2em;
+    font-size: 0.7em;
+    color: #797979;
   }
 }
 
