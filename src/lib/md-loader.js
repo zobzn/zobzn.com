@@ -6,7 +6,7 @@ const rehypeRaw = require("rehype-raw");
 const rehypePrism = require("@mapbox/rehype-prism");
 const rehypeStringify = require("rehype-stringify");
 
-module.exports = async function(rawContent) {
+module.exports = async function (rawContent) {
   const callback = this.async();
   const { data: meta, content } = matter(rawContent);
 

@@ -4,9 +4,9 @@ const matter = require("gray-matter");
 
 const items = fs
   .readdirSync(path.resolve(__dirname, "../data/posts"))
-  .filter(k => !!k.match(/\.md$/))
-  .map(k => k.split(/[./]/)[0])
-  .map(slug => {
+  .filter((k) => !!k.match(/\.md$/))
+  .map((k) => k.split(/[./]/)[0])
+  .map((slug) => {
     const rawContent = fs.readFileSync(
       path.resolve(__dirname, "../data/posts/" + slug + ".md"),
       "UTF-8"
@@ -17,7 +17,7 @@ const items = fs
     return {
       slug,
       title: meta.title || null,
-      date: meta.date || null
+      date: meta.date || null,
     };
   })
   .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));

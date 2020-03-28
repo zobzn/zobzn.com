@@ -5,7 +5,7 @@ import classnames from "classnames";
 import checkFonts from "../lib/check-fonts";
 
 const defaultClassNames = {
-  "page-bone": true
+  "page-bone": true,
 };
 
 export default function Layout({ classNames = {}, children }) {
@@ -26,5 +26,5 @@ export default function Layout({ classNames = {}, children }) {
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };

@@ -13,7 +13,7 @@ it("works", () => {
       res = result;
 
       return true;
-    }
+    },
   };
 
   const ret = mdLoader.call(spy, "# header");
@@ -38,7 +38,7 @@ it("handles error", () => {
       res = result;
 
       return true;
-    }
+    },
   };
 
   const ret = mdLoader.call(spy, "```blabla\nblabla\n```");

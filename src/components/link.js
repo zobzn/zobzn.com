@@ -20,7 +20,7 @@ export default function Link(props) {
     scroll,
     shallow,
     passHref,
-    prefetch
+    prefetch,
   };
 
   return (

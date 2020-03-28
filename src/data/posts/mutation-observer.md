@@ -13,7 +13,7 @@ MutationObserver очень заинтересовал меня для одно�
 
 ```javascript
 function waitForSelectorOnce(selector) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     let observer = null;
     let checker = () => {
       if (document.querySelector(selector)) {
@@ -32,7 +32,7 @@ function waitForSelectorOnce(selector) {
       observer.observe(document.documentElement, {
         attributes: true,
         childList: true,
-        subtree: true
+        subtree: true,
       });
     }
   });

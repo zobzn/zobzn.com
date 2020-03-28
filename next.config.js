@@ -12,24 +12,24 @@ const nextConfig = {
       test: /\.md$/,
       use: [
         options.defaultLoaders.babel,
-        path.join(__dirname, "./src/lib/md-loader")
-      ]
+        path.join(__dirname, "./src/lib/md-loader"),
+      ],
     });
 
     config.module.rules.push({
       test: /\.txt$/,
-      use: "raw-loader"
+      use: "raw-loader",
     });
 
     // Fixes npm packages that depend on `fs` module
     if (!isServer) {
       config.node = {
-        fs: "empty"
+        fs: "empty",
       };
     }
 
     return config;
-  }
+  },
 };
 
 // module.exports = withSass(nextConfig);

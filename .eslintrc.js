@@ -2,7 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-    node: true
+    node: true,
   },
   parser: "babel-eslint",
   extends: [
@@ -10,32 +10,32 @@ module.exports = {
     "plugin:import/recommended",
     "plugin:react/recommended",
     "plugin:jest/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
   ],
   plugins: ["import", "react", "react-hooks", "jest", "prettier"],
   globals: {
     Atomics: "readonly",
-    SharedArrayBuffer: "readonly"
+    SharedArrayBuffer: "readonly",
   },
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     ecmaVersion: 2018,
-    sourceType: "module"
+    sourceType: "module",
   },
   rules: {
     // "no-console": 2,
     "react/prop-types": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
   },
   settings: {
     react: {
       createClass: "createReactClass",
       version: "detect",
-      pragma: "React"
-    }
-  }
+      pragma: "React",
+    },
+  },
 };

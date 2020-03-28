@@ -14,12 +14,12 @@ const transition = { duration: 0.2, ease: [0.43, 0.13, 0.23, 0.96] };
 const variants = {
   hidden: {
     opacity: 0,
-    transition
+    transition,
   },
   visible: {
     opacity: 1,
-    transition
-  }
+    transition,
+  },
 };
 
 class ZbzApp extends App {

@@ -80,7 +80,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: true
+    fallback: true,
     // If fallback is false, then any paths not returned by getStaticPaths will result in a 404 page.
     // This is useful if you know that all paths will be known at build time.
   };
@@ -91,7 +91,7 @@ export async function getStaticProps({ params }) {
   const note = (await import(`../data/posts/${slug}.md`)).default;
 
   return {
-    props: { note: { ...note, slug } }
+    props: { note: { ...note, slug } },
   };
 }
 

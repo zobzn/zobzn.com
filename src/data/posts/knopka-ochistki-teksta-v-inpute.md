@@ -53,7 +53,7 @@ date: "2014-06-15 23:44:10"
 И потом немного скриптовой магии
 
 ```javascript
-(function($) {
+(function ($) {
   var input_class = "zbz-input-clearable",
     input_class_x = input_class + "--x",
     input_class_x_over = input_class + "--x-over",
@@ -63,7 +63,7 @@ date: "2014-06-15 23:44:10"
     event_main = input_class + "-init",
     event_names = [
       event_main,
-      "focus drop paste keydown keypress input change"
+      "focus drop paste keydown keypress input change",
     ].join(" "),
     btn_width = 13,
     btn_height = 13,
@@ -73,11 +73,11 @@ date: "2014-06-15 23:44:10"
     return v ? "addClass" : "removeClass";
   }
 
-  $(document).on(event_names, input_selector, function() {
+  $(document).on(event_names, input_selector, function () {
     $(this)[tog(this.value)](input_class_x);
   });
 
-  $(document).on("mousemove", input_selector_x, function(e) {
+  $(document).on("mousemove", input_selector_x, function (e) {
     var input = $(this),
       input_width = this.offsetWidth,
       input_height = this.offsetHeight,
@@ -110,14 +110,14 @@ date: "2014-06-15 23:44:10"
     $(this)[tog(is_over_cross)](input_class_x_over);
   });
 
-  $(document).on("click", input_selector_x_over, function() {
+  $(document).on("click", input_selector_x_over, function () {
     $(this)
       .removeClass([input_class_x, input_class_x_over].join(" "))
       .val("")
       .trigger("input");
   });
 
-  $(function() {
+  $(function () {
     $(input_selector).trigger(event_main);
   });
 })(jQuery);

@@ -9,13 +9,13 @@ date: "2019-02-12 08:24:02"
 const listItems = document.querySelectorAll("li");
 
 // по старинке
-Array.prototype.slice.call(listItems).forEach(node => {});
+Array.prototype.slice.call(listItems).forEach((node) => {});
 
 // или
-[...listItems].forEach(node => {});
+[...listItems].forEach((node) => {});
 
 // или
-Array.from(listItems).forEach(node => {});
+Array.from(listItems).forEach((node) => {});
 ```
 
 Удалить повторы в массиве

@@ -7,10 +7,10 @@ const statusCodes = {
   403: "403: Forbidden",
   404: "404: Not Found",
   405: "405: Method Not Allowed",
-  500: "500: Internal Server Error"
+  500: "500: Internal Server Error",
 };
 
-const MyError = props => {
+const MyError = (props) => {
   const { statusCode } = props;
 
   const title =

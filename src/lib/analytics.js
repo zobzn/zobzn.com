@@ -7,9 +7,9 @@ const analytics = Analytics({
   app: "zobzn.com",
   plugins: [
     googleAnalytics({
-      trackingId: GA_TRACKING_ID
-    })
-  ]
+      trackingId: GA_TRACKING_ID,
+    }),
+  ],
 });
 
 export function pageview(url = null) {

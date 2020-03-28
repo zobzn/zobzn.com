@@ -20,9 +20,9 @@ export default function checkFonts(fontFamilies) {
   const seconds = 5;
 
   fontFamilies
-    .map(fontFamily => [
+    .map((fontFamily) => [
       fontFamily,
-      new FontFaceObserver(fontFamily).load(null, seconds * 1000)
+      new FontFaceObserver(fontFamily).load(null, seconds * 1000),
     ])
     .map(([fontFamily, promise]) =>
       promise.then(

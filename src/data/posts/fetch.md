@@ -6,7 +6,7 @@ date: "2020-01-07 23:44:16"
 ### Чтение метаданных ответа
 
 ```js
-fetch("https://httpbin.org/json").then(response => {
+fetch("https://httpbin.org/json").then((response) => {
   console.log(response.status);
   console.log(response.statusText);
   console.log(response.headers.get("Content-Type"));
@@ -18,8 +18,8 @@ fetch("https://httpbin.org/json").then(response => {
 
 ```js
 fetch("https://httpbin.org/html")
-  .then(response => response.text())
-  .then(data => console.log(data));
+  .then((response) => response.text())
+  .then((data) => console.log(data));
 ```
 
 ### Чтение json ответа
@@ -27,12 +27,12 @@ fetch("https://httpbin.org/html")
 ```js
 fetch("https://httpbin.org/json", {
   headers: {
-    Accept: "application/json"
-  }
+    Accept: "application/json",
+  },
 })
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(ex => console.log("parsing failed", ex));
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+  .catch((ex) => console.log("parsing failed", ex));
 ```
 
 ### Отправка json
@@ -42,9 +42,9 @@ fetch("https://httpbin.org/post", {
   method: "POST",
   headers: {
     Accept: "application/json",
-    "Content-Type": "application/json; charset=UTF-8"
+    "Content-Type": "application/json; charset=UTF-8",
   },
-  body: JSON.stringify({ k: "v" })
+  body: JSON.stringify({ k: "v" }),
 });
 ```
 
@@ -55,7 +55,7 @@ const form = document.querySelector("form");
 
 fetch("https://httpbin.org/post", {
   method: "POST",
-  body: new FormData(form)
+  body: new FormData(form),
 });
 ```
 
@@ -64,7 +64,7 @@ fetch("https://httpbin.org/post", {
 ```js
 fetch("https://httpbin.org/post", {
   method: "POST",
-  body: new URLSearchParams({ k1: "v1", k2: "v2" })
+  body: new URLSearchParams({ k1: "v1", k2: "v2" }),
 });
 ```
 
@@ -74,9 +74,9 @@ fetch("https://httpbin.org/post", {
 fetch("https://httpbin.org/post", {
   method: "POST",
   headers: {
-    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
   },
-  body: "k1=v1&k2=v2"
+  body: "k1=v1&k2=v2",
   // body: qs.stringify({ k1: "v1", k2: "v2" })
 });
 ```
@@ -90,7 +90,7 @@ data.append("file", input.files[0]);
 
 fetch("https://httpbin.org/post", {
   method: "POST",
-  body: data
+  body: data,
 });
 ```
 
@@ -103,7 +103,7 @@ data.append("file", file, "hello.txt");
 
 fetch("https://httpbin.org/post", {
   method: "POST",
-  body: data
+  body: data,
 });
 ```
 
@@ -117,7 +117,7 @@ fetch("https://httpbin.org/post", {
 fetch("https://httpbin.org/post", {
   method: "POST",
   credentials: "same-origin",
-  body: data
+  body: data,
 });
 ```
 
@@ -136,8 +136,8 @@ function base64(str) {
 
 fetch("https://httpbin.org/basic-auth/user/passwd", {
   headers: {
-    Authorization: "Basic " + base64("user:passwd")
-  }
+    Authorization: "Basic " + base64("user:passwd"),
+  },
 });
 ```
 
@@ -147,8 +147,8 @@ fetch("https://httpbin.org/basic-auth/user/passwd", {
 const abortController = new AbortController();
 
 fetch("https://httpbin.org/", {
-  signal: abortController.signal
-}).catch(err => {
+  signal: abortController.signal,
+}).catch((err) => {
   if (err.name == "AbortError") {
     console.log("Aborted!", err);
   } else {
@@ -177,7 +177,7 @@ function checkResponseStatus(response) {
 
 fetch("https://httpbin.org/json")
   .then(checkResponseStatus)
-  .then(res => res.json())
-  .then(data => console.log("request succeeded with JSON response", data))
-  .catch(error => console.log("request failed", error));
+  .then((res) => res.json())
+  .then((data) => console.log("request succeeded with JSON response", data))
+  .catch((error) => console.log("request failed", error));
 ```

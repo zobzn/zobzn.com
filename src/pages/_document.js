@@ -4,13 +4,13 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
-const fontLinks = (hrefs => {
-  const makeStyleLink = h => {
+const fontLinks = ((hrefs) => {
+  const makeStyleLink = (h) => {
     return `<link rel="stylesheet" href="${h}" media="print" onload="this.onload=null;this.media='all'" />`;
   };
 
   return {
-    __html: `</script>${hrefs.map(makeStyleLink).join("")}<script>`
+    __html: `</script>${hrefs.map(makeStyleLink).join("")}<script>`,
   };
 })(["https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap"]);
 

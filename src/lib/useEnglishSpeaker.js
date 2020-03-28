@@ -11,28 +11,28 @@ import useSpeechSynthesis from "./useSpeechSynthesis";
 // @see https://www.ibm.com/watson/services/text-to-speech/
 // @see https://cloud.google.com/text-to-speech/
 
-const getVoicesByDefault = () => voices =>
-  voices.filter(voice => voice.default === true);
+const getVoicesByDefault = () => (voices) =>
+  voices.filter((voice) => voice.default === true);
 
-const getVoicesByLang = lang => voices =>
-  voices.filter(voice => voice.lang === lang);
+const getVoicesByLang = (lang) => (voices) =>
+  voices.filter((voice) => voice.lang === lang);
 
-const getVoicesByLangPrefix = prefix => voices =>
-  voices.filter(voice => voice.lang.match(new RegExp("^" + prefix, "i")));
+const getVoicesByLangPrefix = (prefix) => (voices) =>
+  voices.filter((voice) => voice.lang.match(new RegExp("^" + prefix, "i")));
 
-const voicesByNameRegexp = name => voices =>
-  voices.filter(voice => voice.name.match(new RegExp(name, "i")));
+const voicesByNameRegexp = (name) => (voices) =>
+  voices.filter((voice) => voice.name.match(new RegExp(name, "i")));
 
 const findEnUsByName = (voices, name) =>
   voicesByNameRegexp(name)(getVoicesByLang("en-US")(voices));
 
-const findEnUsAny = voices => getVoicesByLang("en-US")(voices);
-const findEnGbAny = voices => getVoicesByLang("en-GB")(voices);
-const findEnAuAny = voices => getVoicesByLang("en-AU")(voices);
-const findEnAny = voices => getVoicesByLangPrefix("en-")(voices);
+const findEnUsAny = (voices) => getVoicesByLang("en-US")(voices);
+const findEnGbAny = (voices) => getVoicesByLang("en-GB")(voices);
+const findEnAuAny = (voices) => getVoicesByLang("en-AU")(voices);
+const findEnAny = (voices) => getVoicesByLangPrefix("en-")(voices);
 
-const findEnUsDefault = voices => getVoicesByDefault()(findEnUsAny(voices));
-const findEnDefault = voices => getVoicesByDefault()(findEnAny(voices));
+const findEnUsDefault = (voices) => getVoicesByDefault()(findEnUsAny(voices));
+const findEnDefault = (voices) => getVoicesByDefault()(findEnAny(voices));
 
 export default function useEnglishSpeaker() {
   const { voices, speak, cancel, speaking: isSpeaking } = useSpeechSynthesis();
@@ -53,7 +53,7 @@ export default function useEnglishSpeaker() {
 
   const voice = preffered.shift();
 
-  const speakEnglishMatherFucker = opts => speak({ ...opts, voice });
+  const speakEnglishMatherFucker = (opts) => speak({ ...opts, voice });
 
   return voices && voice && speak && cancel
     ? { isSpeaking, voice, voices, speak: speakEnglishMatherFucker, cancel }
@@ -62,6 +62,6 @@ export default function useEnglishSpeaker() {
         voice: null,
         voices: [],
         speak: () => {},
-        cancel: () => {}
+        cancel: () => {},
       };
 }

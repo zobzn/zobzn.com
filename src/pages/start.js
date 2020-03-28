@@ -8,7 +8,7 @@ const phrases = require("../data/english-phrases.txt")
   .default.trim()
   .split("\n");
 
-const sample = arr =>
+const sample = (arr) =>
   arr.length > 0
     ? arr[Math.floor(Math.random() * arr.length)].replace(/^[-\s]+/, "")
     : null;
@@ -39,7 +39,7 @@ export default function StartPage() {
   const handlePronounce = () => {
     cancel();
     speak({
-      text: phrase
+      text: phrase,
     });
   };
 
@@ -47,7 +47,7 @@ export default function StartPage() {
     alert(
       voices
         .sort(compareByField("lang"))
-        .map(voice => `${voice.lang} - ${voice.name}`)
+        .map((voice) => `${voice.lang} - ${voice.name}`)
         .join("\n")
     );
   };
