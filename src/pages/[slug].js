@@ -4,11 +4,10 @@ import { useRouter } from "next/router";
 import Head from "../components/head";
 import Layout from "../components/layout";
 import Error from "./_error";
-import { getPostsInfo } from "../lib/posts";
+import { getPosts } from "../lib/posts";
 
-export default function Article(props) {
+export default function Article({ note }) {
   const router = useRouter();
-  const { note } = props;
 
   if (router.isFallback) {
     return <div>Загрузка…</div>;
@@ -44,27 +43,26 @@ export default function Article(props) {
 }
 
 export async function getStaticPaths() {
-  const notes = await getPostsInfo();
+  const notes = await getPosts();
   const paths = notes.map(({ slug }) => `/${slug}`);
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 }
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
-  const data = (await import(`../../content/posts/${slug}.md`)).default;
-  const note = {
-    slug,
-    title: data.meta.title,
-    date: data.meta.date,
-    dateFormatted: dayjs(data.meta.date).format("DD.MM.YYYY"),
-    html: data.html,
-  };
+  const notes = await getPosts();
+  const note = notes.find((note) => note.slug === slug);
 
   return {
-    props: { note },
+    props: {
+      note: {
+        ...note,
+        dateFormatted: dayjs(note.date).format("DD.MM.YYYY"),
+      },
+    },
   };
 }

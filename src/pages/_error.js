@@ -76,8 +76,23 @@ const MyError = (props) => {
   );
 };
 
-MyError.getInitialProps = ({ res, err }) => {
+MyError.getInitialProps = ({ res, err, asPath }) => {
   const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
+
+  // next.js has issues with urls ending with slashes
+  if (statusCode === 404) {
+    const Location = asPath
+      .replace(/\/+/g, "/")
+      .replace(/\/+$/, "")
+      .replace(/\/+#/, "#")
+      .replace(/\/+\?/, "?");
+
+    if (res && asPath !== Location) {
+      res.writeHead(302, { Location });
+      res.end();
+    }
+  }
+
   return { statusCode };
 };
 

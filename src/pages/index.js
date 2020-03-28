@@ -2,7 +2,7 @@ import React from "react";
 import Link from "../components/link";
 import Head from "../components/head";
 import Layout from "../components/layout";
-import { getPostsInfo } from "../lib/posts";
+import { getPosts } from "../lib/posts";
 import dayjs from "dayjs";
 
 export default function Home({ notes }) {
@@ -65,7 +65,7 @@ export default function Home({ notes }) {
 }
 
 export async function getStaticProps() {
-  const notes = (await getPostsInfo()).map((note) => ({
+  const notes = (await getPosts()).map((note) => ({
     ...note,
     dateFormatted: dayjs(note.date).format("MMMM YYYY"),
   }));
