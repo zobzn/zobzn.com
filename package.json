@@ -1,7 +1,10 @@
 {
+  "version": "7.7.7",
   "name": "zobzn.com",
-  "version": "0.1.0",
-  "private": true,
+  "author": "Semyon Tokarev",
+  "description": "My Notes And Tools Website",
+  "homepage": "https://zobzn.com/",
+  "license": "MIT",
   "scripts": {
     "dev": "nodemon --exec \"next dev\"",
     "lint": "eslint --fix -- ./src",
