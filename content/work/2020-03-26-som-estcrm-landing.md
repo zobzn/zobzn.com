@@ -1,5 +1,8 @@
 ---
-title: "Посадочная страница CRM системы для риелторов SOM"
+title: "SOM CRM для риелторов"
+description: "Посадочная страница CRM системы для риелторов SOM"
+thumbnail: /images/work/som-estcrm-landing/thumbnail-500x500.jpg
+layout: "portfolio"
 date: "2020-03-26"
 ---
 

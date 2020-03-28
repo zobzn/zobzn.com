@@ -17,7 +17,7 @@ export default function Article({ note }) {
     return <Error statusCode={404} />;
   }
 
-  const { title, dateFormatted, html } = note;
+  const { title, date, html } = note;
 
   return (
     <Layout classNames={{ [`note-${note.slug}`]: true }}>
@@ -35,7 +35,7 @@ export default function Article({ note }) {
       </article>
       <div className="article-info">
         <div className="article-info__wrapper">
-          <div className="article-info__date">{dateFormatted}</div>
+          <div className="article-info__date">{date}</div>
         </div>
       </div>
     </Layout>
@@ -55,14 +55,15 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { slug } = params;
   const notes = await getPosts();
-  const note = notes.find((note) => note.slug === slug);
+  const item = notes.find((note) => note.slug === slug);
+  const note = {
+    slug: item.slug,
+    title: item.title,
+    html: item.html,
+    date: dayjs(item.date).format("DD.MM.YYYY"),
+  };
 
   return {
-    props: {
-      note: {
-        ...note,
-        dateFormatted: dayjs(note.date).format("DD.MM.YYYY"),
-      },
-    },
+    props: { note },
   };
 }

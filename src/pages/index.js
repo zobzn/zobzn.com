@@ -18,7 +18,7 @@ export default function Home({ notes }) {
         {notes.length < 1 && <p>Все заметки куда-то потерялись… :-(</p>}
         {notes.length > 0 && (
           <ul className="posts-list">
-            {notes.map(({ slug, title, dateFormatted }) => (
+            {notes.map(({ slug, title, date }) => (
               <li key={slug} className={`posts-list__item`}>
                 <Link
                   href={`/[slug]`}
@@ -27,7 +27,7 @@ export default function Home({ notes }) {
                 >
                   {title}
                 </Link>
-                <div className={`posts-list__item-meta`}>{dateFormatted}</div>
+                <div className={`posts-list__item-meta`}>{date}</div>
               </li>
             ))}
           </ul>
@@ -65,9 +65,10 @@ export default function Home({ notes }) {
 }
 
 export async function getStaticProps() {
-  const notes = (await getPosts()).map((note) => ({
-    ...note,
-    dateFormatted: dayjs(note.date).format("MMMM YYYY"),
+  const notes = (await getPosts()).map(({ slug, title, date }) => ({
+    slug,
+    title,
+    date: dayjs(date).format("MMMM YYYY"),
   }));
 
   return {

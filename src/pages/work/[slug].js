@@ -47,7 +47,12 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { slug } = params;
   const jobs = await getJobs();
-  const job = jobs.find((job) => job.slug === slug);
+  const item = jobs.find((job) => job.slug === slug);
+
+  const job = {
+    title: item.title,
+    html: item.html,
+  };
 
   return {
     props: { job },

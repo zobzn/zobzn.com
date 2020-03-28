@@ -1,8 +1,10 @@
 ---
 title: "choose-file"
 description: "Маленькая библиотека для вызова диалога выбора файлов для загрузки на сервер"
+thumbnail: /images/work/choose-file/thumbnail-640x426.jpg
 layout: "portfolio"
 date: "2016-01-24"
+# draft: true
 ---
 
 Маленькая библиотека для вызова диалога выбора файлов для загрузки на сервер.

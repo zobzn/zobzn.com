@@ -34,6 +34,11 @@ export default function Header() {
           Start
         </Link>
       )}
+      {isLocalHost && (
+        <Link href="/work" className="zbz-link ml-16">
+          Work
+        </Link>
+      )}
     </header>
   );
 }

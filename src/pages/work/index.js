@@ -1,9 +1,10 @@
 import React from "react";
-import dayjs from "dayjs";
 import Layout from "../../components/layout";
 import Head from "../../components/head";
 import { getJobs } from "../../lib/jobs";
 import Link from "../../components/link";
+
+import styles from "../../styles/work.module.scss";
 
 export default function Work(props) {
   // console.log(props);
@@ -15,12 +16,26 @@ export default function Work(props) {
       <Head>
         <title>ы</title>
       </Head>
-      <div>
+      <div className={styles.list}>
         {jobs.map((job) => (
-          <div key={job.slug}>
-            <Link href={`/work/[slug]`} as={`/work/${job.slug}`}>
-              {job.title}
-            </Link>
+          <div key={job.slug} className={styles.item}>
+            <div className={styles.itemHead}>
+              {job.thumbnail && (
+                <Link href={`/work/[slug]`} as={`/work/${job.slug}`}>
+                  <img src={job.thumbnail} alt="" />
+                </Link>
+              )}
+            </div>
+            <div className={styles.itemMain}>
+              <Link
+                className={styles.itemTitle}
+                href={`/work/[slug]`}
+                as={`/work/${job.slug}`}
+              >
+                {job.title}
+              </Link>
+              <div className={styles.itemDescription}>{job.description}</div>
+            </div>
           </div>
         ))}
       </div>
@@ -29,10 +44,14 @@ export default function Work(props) {
 }
 
 export async function getStaticProps() {
-  const jobs = (await getJobs()).map((job) => ({
-    ...job,
-    dateFormatted: dayjs(job.date).format("MMMM YYYY"),
-  }));
+  const jobs = (await getJobs())
+    .filter((job) => !job.draft)
+    .map(({ slug, title, thumbnail, description = null }) => ({
+      slug,
+      title,
+      thumbnail,
+      description,
+    }));
 
   return {
     props: { jobs },
