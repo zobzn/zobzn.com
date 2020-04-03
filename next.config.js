@@ -1,7 +1,5 @@
 const path = require("path");
 
-// const withSass = require("@zeit/next-sass");
-
 const nextConfig = {
   // target: "serverless",
   pageExtensions: ["js", "jsx", "ts", "tsx", "md"],
@@ -32,5 +30,4 @@ const nextConfig = {
   },
 };
 
-// module.exports = withSass(nextConfig);
 module.exports = nextConfig;
