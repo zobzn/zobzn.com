@@ -14,9 +14,9 @@ export default function Work(props) {
   return (
     <Layout>
       <Head>
-        <title>ы</title>
+        <title>Semyon&quot;s work</title>
       </Head>
-      <div className={styles.list}>
+      <div className={"container " + styles.list}>
         {jobs.map((job) => (
           <div key={job.slug} className={styles.item}>
             <div className={styles.itemHead}>

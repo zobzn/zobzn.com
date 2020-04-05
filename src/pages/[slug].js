@@ -24,10 +24,8 @@ export default function Article({ note }) {
       <Head>
         <title>{title}</title>
       </Head>
-      <article>
-        <div className="article-head">
-          <h1>{title}</h1>
-        </div>
+      <article className="article">
+        <h1>{title}</h1>
         <div
           className="article-body"
           dangerouslySetInnerHTML={{ __html: html }}

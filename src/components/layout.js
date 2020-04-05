@@ -9,15 +9,13 @@ const defaultClassNames = {
 };
 
 export default function Layout({ classNames = {}, children }) {
-  const combinedClassNames = Object.assign({}, defaultClassNames, classNames);
-
   useEffect(() => {
     checkFonts(["Fira Sans"]);
   });
 
   return (
     <>
-      <div className={classnames(combinedClassNames)}>
+      <div className={classnames(defaultClassNames, classNames)}>
         <Header />
         {children}
       </div>

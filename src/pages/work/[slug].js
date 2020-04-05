@@ -21,15 +21,17 @@ export default function Article({ job }) {
       <Head>
         <title>{job.title}</title>
       </Head>
-      <article>
-        <div className="article-head">
-          <h1>{job.title}</h1>
-        </div>
-        <div
-          className="article-body"
-          dangerouslySetInnerHTML={{ __html: job.html }}
-        />
-      </article>
+      <div className="container">
+        <article>
+          <div className="article-head">
+            <h1>{job.title}</h1>
+          </div>
+          <div
+            className="article-body"
+            dangerouslySetInnerHTML={{ __html: job.html }}
+          />
+        </article>
+      </div>
     </Layout>
   );
 }

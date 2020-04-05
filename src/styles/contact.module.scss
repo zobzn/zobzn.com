@@ -3,8 +3,14 @@
 
 .form {
   flex-direction: column;
-  max-width: 800px;
+  margin: 0 0 2rem 0;
   display: flex;
+
+  @include media-breakpoint-up($screen-name-xl) {
+    transform: translate(-43.5%, 0);
+    position: relative;
+    left: 50%;
+  }
 }
 
 .row {

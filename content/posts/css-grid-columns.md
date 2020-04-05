@@ -6,6 +6,16 @@ date: "2020-04-03 13:59:43"
 <div class="mt-80"></div>
 
 <style>
+  .grid-example-wrapper {
+    transform: translate(-50%, 0);
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1200px;
+    padding: 0 10px;
+    width: 100vw;
+    left: 50%;
+  }
   .cell-example {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
     justify-items: center;
@@ -44,12 +54,14 @@ date: "2020-04-03 13:59:43"
 }
 </style>
 
-<div class="grid-example-1">
-  <div class="cell-example">Ячейка 1</div>
-  <div class="cell-example">Ячейка 2</div>
-  <div class="cell-example">Ячейка 3</div>
-  <div class="cell-example">Ячейка 4</div>
-  <div class="cell-example">Ячейка 5</div>
+<div class="grid-example-wrapper">
+  <div class="grid-example-1">
+    <div class="cell-example">Ячейка 1</div>
+    <div class="cell-example">Ячейка 2</div>
+    <div class="cell-example">Ячейка 3</div>
+    <div class="cell-example">Ячейка 4</div>
+    <div class="cell-example">Ячейка 5</div>
+  </div>
 </div>
 
 <div class="mt-80"></div>
@@ -78,12 +90,14 @@ date: "2020-04-03 13:59:43"
 }
 </style>
 
-<div class="grid-example-2">
-  <div class="cell-example">Ячейка 1</div>
-  <div class="cell-example">Ячейка 2</div>
-  <div class="cell-example">Ячейка 3</div>
-  <div class="cell-example">Ячейка 4</div>
-  <div class="cell-example">Ячейка 5</div>
+<div class="grid-example-wrapper">
+  <div class="grid-example-2">
+    <div class="cell-example">Ячейка 1</div>
+    <div class="cell-example">Ячейка 2</div>
+    <div class="cell-example">Ячейка 3</div>
+    <div class="cell-example">Ячейка 4</div>
+    <div class="cell-example">Ячейка 5</div>
+  </div>
 </div>
 
 <div class="mt-80"></div>
@@ -110,14 +124,16 @@ date: "2020-04-03 13:59:43"
 }
 </style>
 
-<div class="grid-example-3">
-  <div class="cell-example">Ячейка 1</div>
-  <div class="cell-example">Ячейка 2</div>
-  <div class="cell-example">Ячейка 3</div>
-  <div class="cell-example">Ячейка 4</div>
-  <div class="cell-example">Ячейка 5</div>
-  <div class="cell-example">Ячейка 6</div>
-  <div class="cell-example">Ячейка 7</div>
+<div class="grid-example-wrapper">
+  <div class="grid-example-3">
+    <div class="cell-example">Ячейка 1</div>
+    <div class="cell-example">Ячейка 2</div>
+    <div class="cell-example">Ячейка 3</div>
+    <div class="cell-example">Ячейка 4</div>
+    <div class="cell-example">Ячейка 5</div>
+    <div class="cell-example">Ячейка 6</div>
+    <div class="cell-example">Ячейка 7</div>
+  </div>
 </div>
 
 <div class="mt-80"></div>
@@ -146,6 +162,7 @@ date: "2020-04-03 13:59:43"
 .grid-example-4 {
   grid-template-columns: repeat(3, 93px);
   grid-auto-rows: minmax(93px, auto);
+  justify-content: center;
   margin: 30px auto;
   grid-gap: 10px;
   display: grid;
@@ -161,12 +178,14 @@ date: "2020-04-03 13:59:43"
 }
 </style>
 
-<div class="grid-example-4">
-  <div class="cell-example row-span-2">Ячейка 1</div>
-  <div class="cell-example col-span-2">Ячейка 2</div>
-  <div class="cell-example">Ячейка 3</div>
-  <div class="cell-example row-span-2">Ячейка 4</div>
-  <div class="cell-example col-span-2">Ячейка 5</div>
+<div class="grid-example-wrapper">
+  <div class="grid-example-4">
+    <div class="cell-example row-span-2">Ячейка 1</div>
+    <div class="cell-example col-span-2">Ячейка 2</div>
+    <div class="cell-example">Ячейка 3</div>
+    <div class="cell-example row-span-2">Ячейка 4</div>
+    <div class="cell-example col-span-2">Ячейка 5</div>
+  </div>
 </div>
 
 <div class="mt-80"></div>
@@ -195,15 +214,17 @@ date: "2020-04-03 13:59:43"
 }
 </style>
 
-<div class="grid-example-5">
-  <div class="cell-example">Ячейка 1</div>
-  <div class="cell-example">Ячейка 2</div>
-  <div class="cell-example">Ячейка 3</div>
-  <div class="cell-example">Ячейка 4</div>
-  <div class="cell-example">Ячейка 5</div>
-  <div class="cell-example">Ячейка 6</div>
-  <div class="cell-example">Ячейка 7</div>
-  <div class="cell-example">Ячейка 8</div>
-  <div class="cell-example">Ячейка 9</div>
-  <div class="cell-example">Ячейка 10</div>
+<div class="grid-example-wrapper">
+  <div class="grid-example-5">
+    <div class="cell-example">Ячейка 1</div>
+    <div class="cell-example">Ячейка 2</div>
+    <div class="cell-example">Ячейка 3</div>
+    <div class="cell-example">Ячейка 4</div>
+    <div class="cell-example">Ячейка 5</div>
+    <div class="cell-example">Ячейка 6</div>
+    <div class="cell-example">Ячейка 7</div>
+    <div class="cell-example">Ячейка 8</div>
+    <div class="cell-example">Ячейка 9</div>
+    <div class="cell-example">Ячейка 10</div>
+  </div>
 </div>

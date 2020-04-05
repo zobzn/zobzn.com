@@ -50,14 +50,14 @@ date: "2019-09-10 19:21"
 Результат (поизменяйте ширину браузера)
 
 <style>
-.container {
+.example-container {
   max-width: 900px;
   flex-wrap: wrap;
   margin: 1rem 0;
   display: flex;
 }
 
-.cell {
+.example-cell {
   box-sizing: border-box;
   max-width: 100%;
   min-width: 33%;
@@ -67,7 +67,7 @@ date: "2019-09-10 19:21"
   color: #fff;
 }
 
-.cell:before {
+.example-cell:before {
   border-radius: 3px;
   background: #ccc;
   display: block;
@@ -76,11 +76,11 @@ date: "2019-09-10 19:21"
 }
 </style>
 
-<div class="container">
-  <div class="cell"></div>
-  <div class="cell"></div>
-  <div class="cell"></div>
-  <div class="cell"></div>
-  <div class="cell"></div>
-  <div class="cell"></div>
+<div class="example-container">
+  <div class="example-cell"></div>
+  <div class="example-cell"></div>
+  <div class="example-cell"></div>
+  <div class="example-cell"></div>
+  <div class="example-cell"></div>
+  <div class="example-cell"></div>
 </div>

@@ -14,6 +14,10 @@ const initialValues = { name: "", email: "", message: "" };
 const validate = (values) => {
   debug && console.log("validate", values);
 
+  if (!(values.name || values.email || values.message)) {
+    return { message: "Do you really want to send me nothing?" };
+  }
+
   // const errors = {};
   // if (!values.email) {
   //   errors.email = "Required";
@@ -46,72 +50,62 @@ export default function Contact() {
         <title>Contact Semyon Tokarev</title>
       </Head>
 
-      <Formik
-        initialValues={initialValues}
-        validate={validate}
-        onSubmit={onSubmit}
-      >
-        {({ isSubmitting }) => (
-          <Form className={styles.form}>
-            <div className={styles.row}>
-              <div className={styles.label}></div>
-              <div className={styles.input}>
-                <h1>Contact Semyon</h1>
+      <div className="container">
+        <Formik
+          initialValues={initialValues}
+          validate={validate}
+          onSubmit={onSubmit}
+        >
+          {({ isSubmitting }) => (
+            <Form className={styles.form}>
+              <div className={styles.row}>
+                <div className={styles.label}></div>
+                <div className={styles.input}>
+                  <h1>Contact Semyon</h1>
+                </div>
               </div>
-            </div>
-            <label className={styles.row}>
-              <div className={styles.label}>Your name</div>
-              <div className={styles.input}>
-                <Field
-                  type="text"
-                  name="name"
-                  disabled={isSubmitting}
-                  required
-                />
-                <ErrorMessage name="name" component="div" />
+              <label className={styles.row}>
+                <div className={styles.label}>Your name</div>
+                <div className={styles.input}>
+                  <Field type="text" name="name" disabled={isSubmitting} />
+                  <ErrorMessage name="name" component="div" />
+                </div>
+              </label>
+              <label className={styles.row}>
+                <div className={styles.label}>Your email</div>
+                <div className={styles.input}>
+                  <Field type="email" name="email" disabled={isSubmitting} />
+                  <ErrorMessage name="email" component="div" />
+                </div>
+              </label>
+              <label className={styles.row}>
+                <div className={styles.label}>What can I help you with?</div>
+                <div className={styles.input}>
+                  <Field
+                    type="text"
+                    name="message"
+                    as="textarea"
+                    disabled={isSubmitting}
+                  />
+                  <ErrorMessage name="message" component="div" />
+                </div>
+              </label>
+              <div className={styles.row}>
+                <div className={styles.label}></div>
+                <div className={styles.input}>
+                  <button
+                    className="zbz-button"
+                    type="submit"
+                    disabled={isSubmitting}
+                  >
+                    Submit
+                  </button>
+                </div>
               </div>
-            </label>
-            <label className={styles.row}>
-              <div className={styles.label}>Your email</div>
-              <div className={styles.input}>
-                <Field
-                  type="email"
-                  name="email"
-                  disabled={isSubmitting}
-                  required
-                />
-                <ErrorMessage name="email" component="div" />
-              </div>
-            </label>
-            <label className={styles.row}>
-              <div className={styles.label}>What can I help you with?</div>
-              <div className={styles.input}>
-                {/* <textarea row={8} required /> */}
-                <Field
-                  type="text"
-                  name="message"
-                  as="textarea"
-                  disabled={isSubmitting}
-                  required
-                />
-                <ErrorMessage name="message" component="div" />
-              </div>
-            </label>
-            <div className={styles.row}>
-              <div className={styles.label}></div>
-              <div className={styles.input}>
-                <button
-                  className="zbz-button"
-                  type="submit"
-                  disabled={isSubmitting}
-                >
-                  Submit
-                </button>
-              </div>
-            </div>
-          </Form>
-        )}
-      </Formik>
+            </Form>
+          )}
+        </Formik>
+      </div>
     </Layout>
   );
 }
