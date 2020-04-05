@@ -50,14 +50,7 @@ export default function Home({ notes }) {
             мой github
           </a>
           , а если очень хочется, можете даже{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://docs.google.com/forms/d/e/1FAIpQLScrzauOuVwNKqYEd3UCeM_ihMCknTRKvfvNLIDRj6b2r8cp9A/viewform"
-          >
-            написать
-          </a>{" "}
-          мне что-нибудь.
+          <Link href="/contact">написать</Link> мне что-нибудь.
         </p>
       </section>
     </Layout>

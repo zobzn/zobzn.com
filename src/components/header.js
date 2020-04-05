@@ -39,6 +39,11 @@ export default function Header() {
           Work
         </Link>
       )}
+      {true && (
+        <Link href="/contact" className="zbz-link ml-16">
+          Contact
+        </Link>
+      )}
     </header>
   );
 }
