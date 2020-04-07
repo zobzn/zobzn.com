@@ -8,8 +8,10 @@ date: "2020-02-11"
 
 ### Технологии
 
-- next.js
 - sass
+- jquery
+- codemirror
+- webpack
 
 ### Превью
 

@@ -29,11 +29,6 @@
       .font-fira-sans & {
         font-family: $font-site-head;
       }
-
-      &:after {
-        content: var(--logo-text);
-        content: attr(data-site-title);
-      }
     }
 
     :link,

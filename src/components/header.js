@@ -20,8 +20,8 @@ export default function Header() {
   return (
     <header className={"container " + styles["site-head"]}>
       <div className={styles["site-head__title"]}>
-        {isHomepage && <h1 data-site-title={siteTitle}>{""}</h1>}
-        {!isHomepage && <Link href={`/`} data-site-title={siteTitle}></Link>}
+        {isHomepage && <h1>{siteTitle}</h1>}
+        {!isHomepage && <Link href={`/`}>{siteTitle}</Link>}
       </div>
       <nav className={styles["site-head__menu"]}>
         {isLocalHost && (
