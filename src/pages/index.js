@@ -32,6 +32,12 @@ export default function Home() {
             >
               linkedin
             </a>
+            <a
+              href="/download/cv-tokarev-web-dev-2020.docx"
+              download="cv-tokarev-web-dev-2020.docx"
+            >
+              resume
+            </a>
           </div>
         </div>
       </section>
