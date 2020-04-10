@@ -9,7 +9,7 @@ export default function Notes({ notes }) {
   return (
     <Layout>
       <Head>
-        <title>Semyon&quot;s notes about web dev things</title>
+        <title>Semyon&apos;s notes about web dev things</title>
       </Head>
 
       <section className="container">

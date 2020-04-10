@@ -24,6 +24,7 @@ const validate = (values) => {
   // } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
   //   errors.email = "Invalid email address";
   // }
+
   return {};
 };
 
@@ -47,7 +48,7 @@ export default function Contact() {
   return (
     <Layout>
       <Head>
-        <title>Contact Semyon Tokarev</title>
+        <title>Contact Semyon</title>
       </Head>
 
       <div className="container">
@@ -87,19 +88,19 @@ export default function Contact() {
                     as="textarea"
                     disabled={isSubmitting}
                   />
-                  <ErrorMessage name="message" component="div" />
                 </div>
               </label>
               <div className={styles.row}>
                 <div className={styles.label}></div>
-                <div className={styles.input}>
+                <div className={styles.buttons}>
                   <button
-                    className="zbz-button"
-                    type="submit"
                     disabled={isSubmitting}
+                    className="zbz-button mr-20"
+                    type="submit"
                   >
                     Submit
                   </button>
+                  <ErrorMessage name="message" component="span" />
                 </div>
               </div>
             </Form>

@@ -14,7 +14,7 @@ export default function Work(props) {
   return (
     <Layout>
       <Head>
-        <title>Semyon&quot;s work</title>
+        <title>Semyon&apos;s work</title>
       </Head>
       <div className={"container " + styles.list}>
         {jobs.map((job) => (

@@ -7,14 +7,16 @@ date: "2020-04-03 13:59:43"
 
 <style>
   .grid-example-wrapper {
-    transform: translate(-50%, 0);
+    /* transform: translate(-50%, 0); */
     position: relative;
     margin-right: auto;
     margin-left: auto;
     max-width: 1200px;
     padding: 0 10px;
+    /*
     width: 100vw;
     left: 50%;
+    */
   }
   .cell-example {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);

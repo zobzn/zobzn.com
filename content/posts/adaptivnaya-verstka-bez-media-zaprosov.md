@@ -51,9 +51,9 @@ date: "2019-09-10 19:21"
 
 <style>
 .example-container {
-  max-width: 900px;
+  margin: 1rem auto;
+  max-width: 1220px;
   flex-wrap: wrap;
-  margin: 1rem 0;
   display: flex;
 }
 

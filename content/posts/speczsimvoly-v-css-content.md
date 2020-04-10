@@ -23,7 +23,7 @@ date: "2015-05-04 10:32:57"
 }
 ```
 
-<div class="test-special-symbols"></div>
+<p class="test-special-symbols"></p>
 
 <!--
 http://stackoverflow.com/a/8595802

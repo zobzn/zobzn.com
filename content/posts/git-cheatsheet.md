@@ -125,7 +125,6 @@ composer config --global github-oauth.github.com 2983569283568927365987236598
 
 .article-body table {
     border-collapse: collapse;
-    max-width: 100%;
     font-size: 14px;
 }
 

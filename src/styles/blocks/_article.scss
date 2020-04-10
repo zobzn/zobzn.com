@@ -4,27 +4,53 @@
 .article,
 .article-body {
   & {
-    text-align: center;
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: 10px;
-    padding-left: 10px;
     text-align: left;
     width: 100%;
+    padding: 0;
+  }
 
-    @include media-breakpoint-up($screen-name-md) {
-      max-width: 920px;
-    }
+  & > h1,
+  & > h2,
+  & > h3,
+  & > h4,
+  & > h5,
+  & > h6,
+  & > ul,
+  & > ol,
+  & > dl,
+  & > p,
+  & > pre,
+  & > blockquote {
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 920px;
+  }
+
+  & > iframe {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 900px;
+    display: block;
+    width: 100%;
+  }
+
+  & > table {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 920px;
+    width: 100%;
   }
 
   & > h1 {
     text-align: center;
   }
-}
 
-.article-body {
   img {
+    margin-right: auto;
     max-width: 100%;
+    display: block;
     height: auto;
     width: auto;
   }

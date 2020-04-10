@@ -26,7 +26,8 @@
 }
 
 .label,
-.input {
+.input,
+.buttons {
   @include media-breakpoint-up($screen-name-sm) {
     padding: 0.5em;
   }
@@ -41,7 +42,8 @@
   }
 }
 
-.input {
+.input,
+.buttons {
   & {
     margin: 0.3em 0 0 0;
   }
@@ -50,7 +52,9 @@
     flex: 1 1 calc(100% * 2 / 3);
     margin: 0;
   }
+}
 
+.input {
   $line-height-ratio: 1.4;
   $font-size: 18px;
   $padding: 0.5em;
@@ -79,4 +83,10 @@
     );
     resize: vertical;
   }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
