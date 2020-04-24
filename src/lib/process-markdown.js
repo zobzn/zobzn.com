@@ -11,7 +11,7 @@ module.exports = function (rawContent) {
 
   const html = unified()
     .use(remarkParse)
-    .use(remark2rehype, { allowDangerousHTML: true })
+    .use(remark2rehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
     .use(rehypePrism)
     .use(rehypeStringify)
