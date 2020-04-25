@@ -1,6 +1,6 @@
 import React from "react";
-import Link from "../components/link";
 import Head from "../components/head";
+import Link from "../components/link";
 
 const statusCodes = {
   400: "400: Bad Request",

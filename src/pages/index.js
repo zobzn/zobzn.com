@@ -1,8 +1,7 @@
 import React from "react";
 import Head from "../components/head";
 import Layout from "../components/layout";
-
-import flexRowStyles from "../styles/flex-row.module.scss";
+import styles from "../styles/flex-row.module.scss";
 
 export default function Home() {
   return (
@@ -17,7 +16,7 @@ export default function Home() {
 
       <section className="container mt-40" style={{ textAlign: "center" }}>
         <div style={{ display: "inline-flex", margin: "0 auto" }}>
-          <div className={flexRowStyles["flex-row"]}>
+          <div className={styles["flex-row"]}>
             <a
               target="_blank"
               rel="noopener noreferrer"

@@ -1,14 +1,13 @@
 // workaround for bug with next-css
 // https://github.com/zeit/next-plugins/issues/282
-import "../styles/app.scss";
-import "../styles/404.scss";
-
-import React from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import App from "next/app";
 import Router from "next/router";
 import nprogress from "nprogress";
-import { AnimatePresence, motion } from "framer-motion";
+import React from "react";
 import Analytics from "../components/analytics";
+import "../styles/404.scss";
+import "../styles/app.scss";
 
 const transition = { duration: 0.2, ease: [0.43, 0.13, 0.23, 0.96] };
 const variants = {

@@ -1,10 +1,10 @@
-import React from "react";
 import dayjs from "dayjs";
 import { useRouter } from "next/router";
+import React from "react";
 import Head from "../components/head";
 import Layout from "../components/layout";
-import Error from "./_error";
 import { getPosts } from "../lib/posts";
+import Error from "./_error";
 
 export default function Article({ note }) {
   const router = useRouter();

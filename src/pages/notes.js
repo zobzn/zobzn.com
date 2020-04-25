@@ -1,9 +1,9 @@
+import dayjs from "dayjs";
 import React from "react";
-import Link from "../components/link";
 import Head from "../components/head";
 import Layout from "../components/layout";
+import Link from "../components/link";
 import { getPosts } from "../lib/posts";
-import dayjs from "dayjs";
 
 export default function Notes({ notes }) {
   return (

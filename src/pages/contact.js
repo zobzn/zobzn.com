@@ -1,9 +1,8 @@
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import React from "react";
+import sleep from "then-sleep";
 import Head from "../components/head";
 import Layout from "../components/layout";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import sleep from "then-sleep";
-
 import styles from "../styles/contact.module.scss";
 
 const debug = process.env.NODE_ENV !== "production";
