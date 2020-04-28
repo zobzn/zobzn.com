@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/linkedin",
+      "destination": "https://www.linkedin.com/in/semyon-tokarev/",
+      "statusCode": 302
+    }
+  ]
+}
