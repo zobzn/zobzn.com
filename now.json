@@ -1,13 +1,15 @@
 {
-  "routes": [
+  "redirects": [
     {
-      "src": "/linkedin",
-      "dest": "https://www.linkedin.com/in/semyon-tokarev/",
+      "source": "/linkedin",
+      "destination": "https://www.linkedin.com/in/semyon-tokarev/",
       "statusCode": 302
-    },
+    }
+  ],
+  "rewrites": [
     {
-      "src": "/resume",
-      "dest": "/download/cv-tokarev-web-dev-2020.pdf"
+      "source": "/resume",
+      "destination": "/download/cv-tokarev-web-dev-2020.pdf"
     }
   ]
 }
