@@ -18,10 +18,7 @@ date: "2019-08-11 06:20:22"
 | `git config --global core.safecrlf false`                          | конфиг: форсировать LF окончания строк                                                            |
 | `git config --global core.quotepath false`                         | конфиг: отображать unicode названия файлов без экранирования                                      |
 | `git config --global core.editor = notepad`                        | конфиг: указать редактор по умолчанию (для указания комментариев к коммитам и т.п.)               |
-| `git config --global alias.co checkout`                            | конфиг: короткий алиас для checkout                                                               |
-| `git config --global alias.br branch`                              | конфиг: короткий алиас для branch                                                                 |
-| `git config --global alias.ci commit`                              | конфиг: короткий алиас для commit                                                                 |
-| `git config --global alias.st 'status -s'`                         | конфиг: короткий алиас для status -s                                                              |
+| `git config --global push.default current`                         | конфиг: выполнять пуши всегда в одноименную ветку                                                 |
 | **Начало работы**                                                  |                                                                                                   |
 | `git init`                                                         | создать локальный репозиторий в текущей папке                                                     |
 | `git clone [url]`                                                  | скачать удаленный репозиторий                                                                     |
@@ -98,11 +95,29 @@ date: "2019-08-11 06:20:22"
 | **todo**                                                           |                                                                                                   |
 | `git gc`                                                           |                                                                                                   |
 
-И бонусом парочка небольших алиасов для однострочных логов
+И бонусом несколько небольших алиасов, которыми я часто пользуюсь
+
+|                                                            |                                               |
+| ---------------------------------------------------------- | --------------------------------------------- |
+| `git config --global alias.s 'status -s'`                  | показать проиндексированные изменения         |
+| `git config --global alias.d "diff HEAD"`                  | показать незакоммиченные изменения            |
+| `git config --global alias.a "add --all"`                  | проиндексировать все изменения                |
+| `git config --global alias.r "remote -v"`                  | показать remote репозитории                   |
+| `git config --global alias.f "fetch --all --tags --prune"` | скачать все с remote репозитория              |
+| `git config --global alias.b "branch"`                     | короткий алиас для branch                     |
+| `git config --global alias.co "checkout"`                  | короткий алиас для checkout                   |
+| `git config --global alias.br "branch -a"`                 | показать все ветки                            |
+| `git config --global alias.nb "checkout -b"`               | создать ветку и переключиться на нее          |
+| `git config --global alias.ci "commit -m"`                 | сделать коммит с комментариев                 |
+| `git config --global alias.unstage "reset HEAD"`           | отменить индексацию изменений                 |
+| `git config --global alias.uncommit "reset --soft HEAD~1"` | отменить последний коммит, сохранив изменения |
+
+и еще несколько для просмотра логов
 
 ```bash
-git config --global alias.lg "log --pretty=format:'%C(Yellow)%h%C(reset) %C(Cyan)%ae%C(reset) %C(Green)(%cr)%C(reset) %C(White)%s%C(reset)' --graph --all"
-git config --global alias.lol "log --oneline --graph --decorate"
+git config --global alias.l "log --pretty=format:'%C(Yellow)%h%C(auto)%d %C(Cyan)%ae %C(White)(%cr) %C(Green)%s%C(reset)'"
+git config --global alias.lol "log --pretty=format:'%C(Yellow)%h%C(auto)%d %C(Cyan)%ae %C(White)(%cr) %C(Green)%s%C(reset)' --graph --name-status"
+git config --global alias.unmerged "log --oneline --graph --name-status --decorate ^HEAD"
 ```
 
 <!--
