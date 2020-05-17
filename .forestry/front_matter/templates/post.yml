@@ -2,19 +2,19 @@
 label: Post
 hide_body: false
 fields:
-- type: text
-  name: title
-  label: title
-- type: datetime
-  name: date
-  label: date
-  config:
-    date_format: DD.MM.YYYY
-    time_format: ''
-    export_format: YYYY-MM-DD hh:mm:ss
-- name: tags
-  type: tag_list
-  default: []
-  label: tags
+  - type: text
+    name: title
+    label: title
+  - type: datetime
+    name: date
+    label: date
+    config:
+      date_format: DD.MM.YYYY
+      time_format: ""
+      export_format: "YYYY-MM-DD hh:mm:ss"
+  - name: tags
+    type: tag_list
+    default: []
+    label: tags
 pages:
-- content/posts/webtorrent.md
+  - content/posts/webtorrent.md
