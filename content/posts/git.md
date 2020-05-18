@@ -19,6 +19,8 @@ date: "2019-08-11 06:20:22"
 | `git config --global core.quotepath false`                         | конфиг: отображать unicode названия файлов без экранирования                                      |
 | `git config --global core.editor = notepad`                        | конфиг: указать редактор по умолчанию (для указания комментариев к коммитам и т.п.)               |
 | `git config --global push.default current`                         | конфиг: выполнять пуши всегда в одноименную ветку                                                 |
+| `git config --global branch.autosetupmerge always`                 | конфиг: автоматически устанавливать трекинг ветки при чекауте                                     |
+| `git config --global branch.autosetuprebase always`                | конфиг: выполнять rebase вместо merge во время pull                                               |
 | **Начало работы**                                                  |                                                                                                   |
 | `git init`                                                         | создать локальный репозиторий в текущей папке                                                     |
 | `git clone [url]`                                                  | скачать удаленный репозиторий                                                                     |
