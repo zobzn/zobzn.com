@@ -1,4 +1,4 @@
-import dayjs from "dayjs";
+import { format as formatDate } from "date-fns";
 import React from "react";
 import Head from "../components/head";
 import Layout from "../components/layout";
@@ -41,7 +41,7 @@ export async function getStaticProps() {
   const notes = (await getPosts()).map(({ slug, title, date }) => ({
     slug,
     title,
-    date: dayjs(date).format("MMMM YYYY"),
+    date: formatDate(date, "MMMM yyyy"),
   }));
 
   return {

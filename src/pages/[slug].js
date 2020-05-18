@@ -1,4 +1,4 @@
-import dayjs from "dayjs";
+import { format as formatDate } from "date-fns";
 import { useRouter } from "next/router";
 import React from "react";
 import Head from "../components/head";
@@ -51,15 +51,15 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+  const notes = (await getPosts()).map(({ slug, title, date, html }) => ({
+    slug,
+    title,
+    date: formatDate(date, "dd.MM.yyyy"),
+    html,
+  }));
+
   const { slug } = params;
-  const notes = await getPosts();
-  const item = notes.find((note) => note.slug === slug);
-  const note = {
-    slug: item.slug,
-    title: item.title,
-    html: item.html,
-    date: dayjs(item.date).format("DD.MM.YYYY"),
-  };
+  const note = notes.find((note) => note.slug === slug);
 
   return {
     props: { note },
