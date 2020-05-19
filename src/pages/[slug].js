@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import Head from "../components/head";
 import Layout from "../components/layout";
+import { Markdown } from "../components/markdown";
 import { getAllPosts } from "../lib/posts";
 import Error from "./_error";
 
@@ -17,7 +18,7 @@ export default function Article({ note }) {
     return <Error statusCode={404} />;
   }
 
-  const { title, date, html } = note;
+  const { title, date, html, markdown } = note;
 
   return (
     <Layout classNames={{ [`note-${note.slug}`]: true }}>
@@ -26,10 +27,15 @@ export default function Article({ note }) {
       </Head>
       <article className="article">
         <h1>{title}</h1>
-        <div
-          className="article-body"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
+        {false && (
+          <div
+            className="article-body"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
+        )}
+        <div className="article-body">
+          <Markdown markdown={markdown} />
+        </div>
       </article>
       <div className="article-info">
         <div className="article-info__wrapper">
@@ -51,12 +57,15 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const notes = (await getAllPosts()).map(({ slug, title, date, html }) => ({
-    slug,
-    title,
-    date: formatDate(date, "dd.MM.yyyy"),
-    html,
-  }));
+  const notes = (await getAllPosts()).map(
+    ({ slug, title, date, html, markdown }) => ({
+      slug,
+      title,
+      date: formatDate(date, "dd.MM.yyyy"),
+      html,
+      markdown,
+    })
+  );
 
   const { slug } = params;
   const note = notes.find((note) => note.slug === slug);

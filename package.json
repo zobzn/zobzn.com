@@ -84,6 +84,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "rehype-react": "^5.0.1",
     "then-sleep": "^1.0.1"
   },
   "browserslist": [

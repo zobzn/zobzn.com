@@ -28,15 +28,18 @@ const preprocessFrontmatterInMarkdown = (
   return { meta: normalizeMeta(meta), markdown };
 };
 
-const markdown2html = (markdown) => {
-  return unified()
+const markdown2html = (() => {
+  const processor = unified()
     .use(remarkParse)
     .use(remark2rehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
     .use(rehypePrism)
-    .use(rehypeStringify)
-    .processSync(markdown).contents;
-};
+    .use(rehypeStringify);
+
+  return (markdown) => {
+    return processor.processSync(markdown).contents;
+  };
+})();
 
 module.exports = function (rawContent) {
   const { meta, markdown } = preprocessFrontmatterInMarkdown(rawContent);
