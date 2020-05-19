@@ -3,7 +3,7 @@ import React from "react";
 import Head from "../components/head";
 import Layout from "../components/layout";
 import Link from "../components/link";
-import { getPosts } from "../lib/posts";
+import { getPublishedPosts } from "../lib/posts";
 
 export default function Notes({ notes }) {
   return (
@@ -38,7 +38,7 @@ export default function Notes({ notes }) {
 }
 
 export async function getStaticProps() {
-  const notes = (await getPosts()).map(({ slug, title, date }) => ({
+  const notes = (await getPublishedPosts()).map(({ slug, title, date }) => ({
     slug,
     title,
     date: formatDate(date, "MMMM yyyy"),

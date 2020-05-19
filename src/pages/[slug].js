@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import Head from "../components/head";
 import Layout from "../components/layout";
-import { getPosts } from "../lib/posts";
+import { getAllPosts } from "../lib/posts";
 import Error from "./_error";
 
 export default function Article({ note }) {
@@ -41,7 +41,7 @@ export default function Article({ note }) {
 }
 
 export async function getStaticPaths() {
-  const notes = await getPosts();
+  const notes = await getAllPosts();
   const paths = notes.map(({ slug }) => `/${slug}`);
 
   return {
@@ -51,7 +51,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const notes = (await getPosts()).map(({ slug, title, date, html }) => ({
+  const notes = (await getAllPosts()).map(({ slug, title, date, html }) => ({
     slug,
     title,
     date: formatDate(date, "dd.MM.yyyy"),

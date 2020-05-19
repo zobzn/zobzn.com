@@ -31,26 +31,24 @@ export async function readMdCollection(basedir) {
     []
   );
 
-  const promises = jobs.map(async (job) => {
-    const rawContent = await readFile(
-      path.resolve(root, basedir + "/" + job.filename),
-      "UTF-8"
-    );
+  const items = await Promise.all(
+    jobs.map(async (job) => {
+      const rawContent = await readFile(
+        path.resolve(root, basedir + "/" + job.filename),
+        "UTF-8"
+      );
 
-    const { meta, markdown, html } = processMarkdown(rawContent);
+      const { meta, markdown, html } = processMarkdown(rawContent);
 
-    const result = {
-      ...job,
-      ...meta,
-      markdown,
-      html,
-    };
+      const result = {
+        ...job,
+        ...meta,
+        markdown,
+        html,
+      };
 
-    return result;
-  });
-
-  const items = (await Promise.all(promises)).sort((a, b) =>
-    a.date < b.date ? 1 : a.date > b.date ? -1 : 0
+      return result;
+    })
   );
 
   return items;
