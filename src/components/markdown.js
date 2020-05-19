@@ -31,8 +31,6 @@ const processor = unified()
         return <span {...props} />;
       },
       input: function Input(props) {
-        console.log("input", props);
-
         const newProps = { ...props };
 
         if (newProps.type === "checkbox" && "checked" in newProps) {

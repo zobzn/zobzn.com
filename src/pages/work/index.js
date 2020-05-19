@@ -7,8 +7,6 @@ import Link from "../../components/link";
 import styles from "../../styles/work.module.scss";
 
 export default function Work(props) {
-  // console.log(props);
-
   const { jobs } = props;
 
   return (
