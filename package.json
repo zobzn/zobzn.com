@@ -5,6 +5,10 @@
   "description": "My Notes And Tools Website",
   "homepage": "https://zobzn.com/",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zobzn/zobzn.com/"
+  },
   "scripts": {
     "dev": "nodemon --exec \"next dev\"",
     "lint": "eslint --fix -- ./src",
