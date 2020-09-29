@@ -26,9 +26,7 @@ http://codepen.io/kizu/pen/LpQPmY?editors=110
 
 ```html
 <div class="demo-scroll-shadows demo-scroll-shadows--black">
-  <div class="demo-scroll-shadows--white">
-    … контент …
-  </div>
+  <div class="demo-scroll-shadows--white">… контент …</div>
 </div>
 ```
 

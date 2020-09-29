@@ -6,7 +6,6 @@ import App from "next/app";
 import Router from "next/router";
 import nprogress from "nprogress";
 import React from "react";
-import Analytics from "../components/analytics";
 import "../styles/404.scss";
 import "../styles/app.scss";
 
@@ -77,7 +76,6 @@ class ZbzApp extends App {
               exit="hidden"
             >
               <Component {...pageProps} />
-              <Analytics />
             </motion.div>
           )}
         </AnimatePresence>
