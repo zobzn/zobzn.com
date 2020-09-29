@@ -1,6 +1,7 @@
 // workaround for bug with next-css
 // https://github.com/zeit/next-plugins/issues/282
 import { AnimatePresence, motion } from "framer-motion";
+import Head from "next/head";
 import App from "next/app";
 import Router from "next/router";
 import nprogress from "nprogress";
@@ -56,20 +57,31 @@ class ZbzApp extends App {
     const { isLoading } = this.state;
 
     return (
-      <AnimatePresence exitBeforeEnter initial={false}>
-        {!isLoading && (
-          <motion.div
-            key={router.asPath + (isLoading ? 1 : 0)}
-            variants={variants}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-          >
-            <Component {...pageProps} />
-            <Analytics />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <>
+        <Head>
+          <meta charSet="utf-8" />
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
+          <link rel="icon" href="/favicon.ico" />
+          <link rel="shortcut icon" href="/favicon.ico" />
+        </Head>
+        <AnimatePresence exitBeforeEnter initial={false}>
+          {!isLoading && (
+            <motion.div
+              key={router.asPath + (isLoading ? 1 : 0)}
+              variants={variants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+            >
+              <Component {...pageProps} />
+              <Analytics />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </>
     );
   }
 }
