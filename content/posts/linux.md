@@ -40,6 +40,12 @@ find . -type f -name "*.php" -print -delete
 find . -type d -empty -print -delete
 ```
 
+Найти и удалить `.svn` папки
+
+```bash
+find -name ".svn" | xargs /bin/rm -rf
+```
+
 Рекурсивное выставление прав доступа на файлы
 
 ```bash
@@ -143,6 +149,15 @@ while :; do echo `date`; sleep 1; done
 # или тоже самое в несколько строк
 while true; do
     echo `date`
+    sleep 1
+done
+```
+
+Ждать запуска сервиса на определенном порту
+
+```bash
+until $(curl --output /dev/null --silent --head --fail http://localhost:3000); do
+    printf '.'
     sleep 1
 done
 ```

@@ -24,7 +24,8 @@ curl -sSL -I -X GET https://httpbin.org/get
 GET запрос с подменой User Agent заголовка
 
 ```bash
-curl -sSL -X GET -A "MyAwesomeUserAgent" https://httpbin.org/get
+curl -sSL -A "MyAwesomeUserAgent" https://httpbin.org/get
+curl -sSL -A googlebot https://httpbin.org/get
 ```
 
 GET запрос с добавлением своих заголовков
