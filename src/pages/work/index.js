@@ -4,7 +4,7 @@ import Head from "../../components/head";
 import { getJobs } from "../../lib/jobs";
 import Link from "../../components/link";
 
-import styles from "../../styles/work.module.scss";
+import styles from "./work.module.scss";
 
 export default function Work(props) {
   const { jobs } = props;

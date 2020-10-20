@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Link from "./link";
+import Link from "../link";
 
-import styles from "../styles/site-head.module.scss";
+import styles from "./header.module.scss";
 
 const localhosts = ["localhost", "127.0.0.1", "10.0.75.1", "192.168.0.100"];
 const siteTitle = `Semyon Tokarev`;
@@ -36,16 +36,16 @@ export default function Header() {
             Work
           </Link>
         )}
-        {true && (
+        {
           <Link href="/notes" className="zbz-link">
             Notes
           </Link>
-        )}
-        {true && (
+        }
+        {
           <Link href="/contact" className="zbz-link">
             Contact
           </Link>
-        )}
+        }
       </nav>
     </header>
   );

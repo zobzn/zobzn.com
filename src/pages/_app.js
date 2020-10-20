@@ -7,7 +7,7 @@ import Router from "next/router";
 import nprogress from "nprogress";
 import React from "react";
 import "../styles/404.scss";
-import "../styles/app.scss";
+import "./_app.scss";
 
 const transition = { duration: 0.2, ease: [0.43, 0.13, 0.23, 0.96] };
 const variants = {

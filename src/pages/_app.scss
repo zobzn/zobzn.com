@@ -1,9 +1,9 @@
 // @import url("https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap");
-@import "~normalize.css/normalize";
-@import "~prismjs/themes/prism";
-@import "~nprogress/nprogress";
-@import "./partial/variables";
-@import "./partial/mixins";
+@import "../../node_modules/normalize.css/normalize.css";
+@import "../../node_modules/prismjs/themes/prism.css";
+@import "../../node_modules/nprogress/nprogress.css";
+@import "../styles/partial/variables";
+@import "../styles/partial/mixins";
 
 // ----------------------------------------------------------------------------
 // reset
@@ -328,25 +328,25 @@ img:-moz-broken:not([alt]) {
 // ----------------------------------------------------------------------------
 // pages
 
-@import "blocks/article";
-@import "blocks/article-info";
+@import "../styles/blocks/article";
+@import "../styles/blocks/article-info";
 
 // ----------------------------------------------------------------------------
 
-@import "blocks/zbz-button";
-@import "blocks/zbz-table";
-@import "blocks/zbz-input-clearable/zbz-input-clearable";
-@import "blocks/media-embed";
+@import "../styles/blocks/zbz-button";
+@import "../styles/blocks/zbz-table";
+@import "../styles/blocks/zbz-input-clearable/zbz-input-clearable";
+@import "../styles/blocks/media-embed";
 
 // ----------------------------------------------------------------------------
 
-@import "for-notes/test-gradient-underlines";
-@import "for-notes/test-hacks";
-@import "for-notes/test-scroll-shadows";
-@import "for-notes/test-special-symbols";
-@import "for-notes/test-swap-rotate";
+@import "../styles/for-notes/test-gradient-underlines";
+@import "../styles/for-notes/test-hacks";
+@import "../styles/for-notes/test-scroll-shadows";
+@import "../styles/for-notes/test-special-symbols";
+@import "../styles/for-notes/test-swap-rotate";
 
 // ----------------------------------------------------------------------------
 
-@import "404";
-@import "partial/utils";
+@import "src/styles/404";
+@import "../styles/partial/utils";

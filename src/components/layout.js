@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React, { useEffect } from "react";
-import Header from "./header";
+import Header from "./header/header";
 import classnames from "classnames";
 import checkFonts from "../lib/check-fonts";
 

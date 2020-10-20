@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "../components/head";
 import Layout from "../components/layout";
-import styles from "../styles/flex-row.module.scss";
+import styles from "./index.module.scss";
 
 export default function Home() {
   return (

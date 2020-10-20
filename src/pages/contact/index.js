@@ -1,9 +1,9 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React from "react";
 import sleep from "then-sleep";
-import Head from "../components/head";
-import Layout from "../components/layout";
-import styles from "../styles/contact.module.scss";
+import Head from "../../components/head";
+import Layout from "../../components/layout";
+import styles from "./contact.module.scss";
 
 const debug = process.env.NODE_ENV !== "production";
 const formActionUrl = new URL("https://post.zobzn.com/");
@@ -27,7 +27,7 @@ const validate = (values) => {
   return {};
 };
 
-export default function Contact() {
+export default function Index() {
   const onSubmit = (values, { setSubmitting }) => {
     const onSent = () => {
       setSubmitting(false);
@@ -59,7 +59,7 @@ export default function Contact() {
           {({ isSubmitting }) => (
             <Form className={styles.form}>
               <div className={styles.row}>
-                <div className={styles.label}></div>
+                <div className={styles.label} />
                 <div className={styles.input}>
                   <h1>Contact Semyon</h1>
                 </div>
