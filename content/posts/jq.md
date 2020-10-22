@@ -1,18 +1,17 @@
 ---
-title: Форматирование json в консоли
+title: про json в консоли
 date: "2020-04-24 14:29:51"
 ---
 
 С помощью утилиты [jq](https://stedolan.github.io/jq/).
-На самом деле у `jq` еще есть много и других возможностей, но мне в первую очередь понравился именно функционал форматирования.
 
-Установка в windows с помощью chocolatey
+### Установка в windows с помощью chocolatey
 
 ```bash
 choco i -y jq
 ```
 
-Пример использования
+### Форматирование json
 
 ```bash
 echo '{"foo": "lorem", "bar": "ipsum"}' | jq
@@ -59,4 +58,10 @@ curl -sSL -X GET "https://httpbin.org/json" -H "accept: application/json" | jq
     "title": "Sample Slide Show"
   }
 }
+```
+
+### Преобразование `[{ "a": "a" }, { "b": "b" }]` в `{ "a": "a", "b": "b" }`
+
+```bash
+echo '[{ "a": "a" }, { "b": "b" }]' | jq add
 ```

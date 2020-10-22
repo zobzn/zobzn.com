@@ -6,7 +6,7 @@ date: "2020-10-23 00:17:10"
 ### Получить список параметров
 
 ```bash
-aws ssm get-parameters-by-path --recursive --with-decryption --path /qa/ | jq -r ".Parameters | map ({(.Name): .Value}) | add | to_entries | sort_by(.key) | from_entries"
+aws ssm get-parameters-by-path --recursive --with-decryption --path /qa/ | jq ".Parameters | map ({(.Name): .Value}) | add | to_entries | sort_by(.key) | from_entries"
 ```
 
 ### Получить значение конкретного параметра
