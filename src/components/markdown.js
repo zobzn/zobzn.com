@@ -3,6 +3,7 @@ import Link from "./link";
 const React = require("react");
 const unified = require("unified");
 const remarkParse = require("remark-parse");
+const remarkGithubFlavoured = require("remark-gfm");
 const remark2rehype = require("remark-rehype");
 const rehypeRaw = require("rehype-raw");
 const rehypeReact = require("rehype-react");
@@ -10,6 +11,7 @@ const rehypePrism = require("@mapbox/rehype-prism");
 
 const processor = unified()
   .use(remarkParse)
+  .use(remarkGithubFlavoured)
   .use(remark2rehype, { allowDangerousHtml: true })
   .use(rehypeRaw)
   .use(rehypePrism)
