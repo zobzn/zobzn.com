@@ -1,5 +1,5 @@
 ---
-title: history.pushState listener
+title: js history.pushState listener
 date: "2020-10-28 23:39:58"
 ---
 
