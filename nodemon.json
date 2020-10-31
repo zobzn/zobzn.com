@@ -5,7 +5,7 @@
     "next.config.js",
     "nodemon.json",
     "package.json",
-    "package-lock.json",
+    "yarn.lock",
     "postcss.config.js"
   ],
   "ignore": [".next/*", "node_modules/*", "src/*"]
