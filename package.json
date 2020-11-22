@@ -10,12 +10,11 @@
     "url": "https://github.com/zobzn/zobzn.com/"
   },
   "scripts": {
-    "dev": "nodemon --exec \"next dev\"",
     "lint": "eslint --fix -- ./src",
     "test": "jest --collect-coverage",
     "clean": "rimraf .next/ out/",
     "build": "next build",
-    "start": "next start",
+    "start": "nodemon --exec \"next dev\"",
     "export": "npm run clean && next build && next export",
     "serve": "npx serve out -l 80",
     "format": "prettier --write ."
