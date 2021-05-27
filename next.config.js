@@ -1,10 +1,10 @@
 const path = require("path");
 
 const nextConfig = {
-  // target: "serverless",
+  future: { webpack5: true },
   pageExtensions: ["js", "jsx", "ts", "tsx", "md"],
   webpack: (config, options) => {
-    const { isServer } = options;
+    // const { isServer } = options;
 
     config.module.rules.push({
       test: /\.md$/,
@@ -20,11 +20,11 @@ const nextConfig = {
     });
 
     // Fixes npm packages that depend on `fs` module
-    if (!isServer) {
-      config.node = {
-        fs: "empty",
-      };
-    }
+    // if (!isServer) {
+    //   config.node = {
+    //     fs: "empty",
+    //   };
+    // }
 
     return config;
   },
