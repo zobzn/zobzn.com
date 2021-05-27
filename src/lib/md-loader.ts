@@ -1,6 +1,6 @@
-const processMarkdown = require("./process-markdown");
+import processMarkdown from "./process-markdown";
 
-module.exports = async function (rawContent) {
+export default async function (rawContent) {
   const callback = this.async();
 
   let meta, html;
@@ -21,4 +21,4 @@ module.exports = async function (rawContent) {
 `;
 
   return callback(null, code);
-};
+}

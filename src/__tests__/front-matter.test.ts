@@ -1,4 +1,4 @@
-const { doFrontMatter, doGrayMatter } = require("../lib/front-matter");
+import { doFrontMatter, doGrayMatter } from "../lib/front-matter";
 
 test("front-matter works", () => {
   const { meta, markdown } = doFrontMatter(`---

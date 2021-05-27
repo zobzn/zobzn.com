@@ -61,7 +61,11 @@ export default function useEnglishSpeaker() {
         isSpeaking: false,
         voice: null,
         voices: [],
-        speak: () => {},
-        cancel: () => {},
+        speak: () => {
+          // do nothing
+        },
+        cancel: () => {
+          // do nothing
+        },
       };
 }

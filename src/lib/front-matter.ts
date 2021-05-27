@@ -1,5 +1,5 @@
-const frontMatter = require("front-matter");
-const grayMatter = require("gray-matter");
+import frontMatter from "front-matter";
+import grayMatter from "gray-matter";
 // const yaml = require("js-yaml");
 
 const doFrontMatter = (rawContent) => {
@@ -19,4 +19,4 @@ const doGrayMatter = (rawContent) => {
   return { meta, markdown: markdown.trim() };
 };
 
-module.exports = { doFrontMatter, doGrayMatter };
+export { doFrontMatter, doGrayMatter };

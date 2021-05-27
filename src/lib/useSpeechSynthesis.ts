@@ -1,13 +1,36 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
-const useSpeechSynthesis = (props = {}) => {
-  const { onEnd = () => {} } = props;
+const loadVoices = () =>
+  new Promise((resolve, reject) => {
+    if (window && window.speechSynthesis && window.speechSynthesis.getVoices) {
+      let voices = window.speechSynthesis.getVoices();
+      if (voices.length > 0) {
+        resolve(voices);
+        return;
+      }
+      window.speechSynthesis.addEventListener("voiceschanged", () => {
+        voices = window.speechSynthesis.getVoices();
+        // voices = event.target.getVoices();
+        resolve(voices);
+      });
+    } else {
+      reject();
+    }
+  });
+
+const useSpeechSynthesis = (props: { onEnd?: () => void } = {}) => {
+  const {
+    onEnd = () => {
+      /* do nothing */
+    },
+  } = props;
+
   const [voices, setVoices] = useState([]);
   const [speaking, setSpeaking] = useState(false);
 
-  const processVoices = (voiceOptions) => {
+  const processVoices = useCallback((voiceOptions) => {
     setVoices(voiceOptions);
-  };
+  }, []);
 
   const handleEnd = () => {
     setSpeaking(false);
@@ -15,37 +38,18 @@ const useSpeechSynthesis = (props = {}) => {
   };
 
   useEffect(() => {
-    function loadVoices() {
-      return new Promise((resolve, reject) => {
-        if (
-          window &&
-          window.speechSynthesis &&
-          window.speechSynthesis.getVoices
-        ) {
-          let voices = window.speechSynthesis.getVoices();
-          if (voices.length > 0) {
-            resolve(voices);
-            return;
-          }
-          window.speechSynthesis.onvoiceschanged = (event) => {
-            // voices = window.speechSynthesis.getVoices();
-            voices = event.target.getVoices();
-            resolve(voices);
-          };
-        } else {
-          reject();
-        }
-      });
-    }
-
     loadVoices()
       .then((voices) => processVoices(voices))
       .catch(() => processVoices([]));
-  }, []);
+  }, [processVoices]);
 
-  const speak = (args = {}) => {
-    const { voice = null, text = "" } = args;
-
+  const speak = ({
+    voice = null,
+    text = "",
+  }: {
+    voice?: SpeechSynthesisVoice;
+    text?: string;
+  } = {}) => {
     setSpeaking(true);
 
     if (

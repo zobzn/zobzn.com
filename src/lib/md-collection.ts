@@ -1,13 +1,14 @@
-const fs = require("fs");
-const path = require("path");
-const util = require("util");
+import fs from "fs";
+import path from "path";
+import util from "util";
+import globCallback from "glob";
+import processMarkdown from "./process-markdown";
+
+const readFile = util.promisify(fs.readFile);
+// const readDir = util.promisify(fs.readdir);
+const glob = util.promisify(globCallback);
 
 export async function readMdCollection(basedir) {
-  const processMarkdown = require("./process-markdown");
-  const readFile = util.promisify(fs.readFile);
-  // const readDir = util.promisify(fs.readdir);
-  const glob = util.promisify(require("glob"));
-
   const root = process.cwd(); // instead of __dirname
 
   const filenames = (
@@ -18,7 +19,7 @@ export async function readMdCollection(basedir) {
     .filter((k) => !!k.match(/\.md$/))
     .filter((k) => k.split(/[./]/)[0]);
 
-  let jobs = filenames.reduce(
+  const jobs = filenames.reduce(
     (acc, filename) =>
       acc.concat([
         {

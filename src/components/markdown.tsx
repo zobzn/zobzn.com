@@ -1,13 +1,12 @@
+import React from "react";
+import unified from "unified";
+import remarkParse from "remark-parse";
+import remarkGithubFlavoured from "remark-gfm";
+import remark2rehype from "remark-rehype";
+import rehypeRaw from "rehype-raw";
+import rehypeReact from "rehype-react";
+import rehypePrism from "@mapbox/rehype-prism";
 import Link from "./link";
-
-const React = require("react");
-const unified = require("unified");
-const remarkParse = require("remark-parse");
-const remarkGithubFlavoured = require("remark-gfm");
-const remark2rehype = require("remark-rehype");
-const rehypeRaw = require("rehype-raw");
-const rehypeReact = require("rehype-react");
-const rehypePrism = require("@mapbox/rehype-prism");
 
 const processor = unified()
   .use(remarkParse)

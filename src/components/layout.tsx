@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
 import React, { useEffect } from "react";
-import Header from "./header/header";
 import classnames from "classnames";
+
+import Header from "./header/header";
 import checkFonts from "../lib/check-fonts";
 
 const defaultClassNames = {
@@ -14,12 +15,10 @@ export default function Layout({ classNames = {}, children }) {
   });
 
   return (
-    <>
-      <div className={classnames(defaultClassNames, classNames)}>
-        <Header />
-        {children}
-      </div>
-    </>
+    <div className={classnames(defaultClassNames, classNames)}>
+      <Header />
+      {children}
+    </div>
   );
 }
 

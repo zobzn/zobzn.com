@@ -3,7 +3,7 @@ import mdLoader from "../lib/md-loader";
 const load = (markdown) => {
   let res = null;
   let err = null;
-  let spy = {
+  const spy = {
     async: () => (error, result) => {
       err = error;
       res = result;

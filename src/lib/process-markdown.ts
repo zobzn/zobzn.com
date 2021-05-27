@@ -1,14 +1,15 @@
-const unified = require("unified");
-const remarkParse = require("remark-parse");
-const remark2rehype = require("remark-rehype");
-const rehypeRaw = require("rehype-raw");
-const rehypePrism = require("@mapbox/rehype-prism");
-const rehypeStringify = require("rehype-stringify");
-const { zonedTimeToUtc, toDate } = require("date-fns-tz");
-const { doFrontMatter, doGrayMatter } = require("./front-matter");
+import unified from "unified";
+import remarkParse from "remark-parse";
+import remark2rehype from "remark-rehype";
+import rehypeRaw from "rehype-raw";
+import rehypePrism from "@mapbox/rehype-prism";
+import rehypeStringify from "rehype-stringify";
+import { zonedTimeToUtc, toDate } from "date-fns-tz";
+import { doFrontMatter, doGrayMatter } from "./front-matter";
 
 const normalizeMeta = (meta) => {
   if (meta.date) {
+    // @ts-ignore
     meta.date = zonedTimeToUtc(toDate(meta.date, { timeZone: "UTC" }));
   }
 
@@ -41,9 +42,9 @@ const markdown2html = (() => {
   };
 })();
 
-module.exports = function (rawContent) {
+export default function (rawContent) {
   const { meta, markdown } = preprocessFrontmatterInMarkdown(rawContent);
   const html = markdown2html(markdown);
 
   return { meta, markdown, html };
-};
+}
