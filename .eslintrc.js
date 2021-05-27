@@ -30,6 +30,7 @@ module.exports = {
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/recommended",
+    "plugin:import/typescript",
     "plugin:react/recommended",
     "plugin:jest/recommended",
     "plugin:prettier/recommended",
@@ -53,11 +54,6 @@ module.exports = {
       createClass: "createReactClass",
       version: "detect",
       pragma: "React",
-    },
-    "import/resolver": {
-      node: {
-        extensions: [".js", ".jsx", ".ts", ".tsx"],
-      },
     },
   },
 };

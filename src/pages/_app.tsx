@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Head from "next/head";
 import App from "next/app";
-import Router from "next/router";
+import RouterObject from "next/router";
 import nprogress from "nprogress";
 import React from "react";
 import "../styles/404.scss";
@@ -40,15 +40,15 @@ class ZbzApp extends App {
   };
 
   componentDidMount() {
-    Router.events.on("routeChangeStart", this.onRouteChangeStart);
-    Router.events.on("routeChangeComplete", this.onRouteChangeComplete);
-    Router.events.on("routeChangeError", this.onRouteChangeError);
+    RouterObject.events.on("routeChangeStart", this.onRouteChangeStart);
+    RouterObject.events.on("routeChangeComplete", this.onRouteChangeComplete);
+    RouterObject.events.on("routeChangeError", this.onRouteChangeError);
   }
 
   componentWillUnmount() {
-    Router.events.off("routeChangeError", this.onRouteChangeError);
-    Router.events.off("routeChangeComplete", this.onRouteChangeComplete);
-    Router.events.off("routeChangeStart", this.onRouteChangeStart);
+    RouterObject.events.off("routeChangeError", this.onRouteChangeError);
+    RouterObject.events.off("routeChangeComplete", this.onRouteChangeComplete);
+    RouterObject.events.off("routeChangeStart", this.onRouteChangeStart);
   }
 
   render() {
