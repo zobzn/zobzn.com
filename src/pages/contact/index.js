@@ -1,9 +1,9 @@
+import styles from "./contact.module.scss";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React from "react";
-import sleep from "then-sleep";
 import Head from "../../components/head";
 import Layout from "../../components/layout";
-import styles from "./contact.module.scss";
+import { sleep } from "../../lib/sleep";
 
 const debug = process.env.NODE_ENV !== "production";
 const formActionUrl = new URL("https://post.zobzn.com/");

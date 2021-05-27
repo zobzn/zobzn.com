@@ -13,15 +13,17 @@ const sample = (arr) =>
     ? arr[Math.floor(Math.random() * arr.length)].replace(/^[-\s]+/, "")
     : null;
 
-const compareByField = (field, isPositive = 1) => (a, b) => {
-  if (a[field] < b[field]) {
-    return -1 * isPositive;
-  } else if (a[field] > b[field]) {
-    return 1 * isPositive;
-  } else {
-    return 0 * isPositive;
-  }
-};
+const compareByField =
+  (field, isPositive = 1) =>
+  (a, b) => {
+    if (a[field] < b[field]) {
+      return -1 * isPositive;
+    } else if (a[field] > b[field]) {
+      return 1 * isPositive;
+    } else {
+      return 0 * isPositive;
+    }
+  };
 
 export default function StartPage() {
   const [phrase, setPhrase] = useState("");
