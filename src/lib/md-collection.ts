@@ -36,7 +36,7 @@ export async function readMdCollection(basedir) {
     jobs.map(async (job) => {
       const rawContent = await readFile(
         path.resolve(root, basedir + "/" + job.filename),
-        { encoding: "UTF-8" }
+        { encoding: "utf-8" }
       );
 
       const { meta, markdown, html } = processMarkdown(rawContent);
