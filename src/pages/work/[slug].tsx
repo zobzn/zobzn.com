@@ -1,8 +1,10 @@
-import React from "react";
+import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
+import React from "react";
+
+import Error from "../_error";
 import Head from "../../components/head";
 import Layout from "../../components/layout";
-import Error from "../_error";
 import { getJobs } from "../../lib/jobs";
 
 export default function Article({ job }) {
@@ -36,7 +38,7 @@ export default function Article({ job }) {
   );
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const jobs = await getJobs();
   const paths = jobs.map(({ slug }) => ({ params: { slug } }));
 
@@ -44,9 +46,9 @@ export async function getStaticPaths() {
     paths,
     fallback: false,
   };
-}
+};
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params;
   const jobs = await getJobs();
   const item = jobs.find((job) => job.slug === slug);
@@ -59,4 +61,4 @@ export async function getStaticProps({ params }) {
   return {
     props: { job },
   };
-}
+};

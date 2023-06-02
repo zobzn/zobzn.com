@@ -1,11 +1,13 @@
+import { GetStaticPaths, GetStaticProps } from "next";
 import { format as formatDate } from "date-fns";
 import { useRouter } from "next/router";
 import React from "react";
+
+import Error from "./_error";
 import Head from "../components/head";
 import Layout from "../components/layout";
 import { Markdown } from "../components/markdown";
 import { getAllPosts } from "../lib/posts";
-import Error from "./_error";
 
 export default function Article({ note }) {
   const router = useRouter();
@@ -46,7 +48,7 @@ export default function Article({ note }) {
   );
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const notes = await getAllPosts();
   const paths = notes.map(({ slug }) => ({ params: { slug } }));
 
@@ -54,9 +56,9 @@ export async function getStaticPaths() {
     paths,
     fallback: false,
   };
-}
+};
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const notes = (await getAllPosts()).map(
     ({ slug, title, date, html, markdown }) => ({
       slug,
@@ -73,4 +75,4 @@ export async function getStaticProps({ params }) {
   return {
     props: { note },
   };
-}
+};
