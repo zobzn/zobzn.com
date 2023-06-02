@@ -21,27 +21,6 @@
     "serve": "npx serve out -l 80",
     "format": "prettier --write ."
   },
-  "lint-staged": {
-    "**/*.{js,jsx}": [
-      "eslint --fix",
-      "git add"
-    ],
-    "**/*.{yml,yaml,json,scss,md}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "lint-staged-bak": {
-    "**/*.{js,jsx}": [
-      "eslint --fix",
-      "git add",
-      "jest --bail --find-related-tests"
-    ],
-    "**/*.{yml,yaml,json,scss,md}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
   "devDependencies": {
     "@mapbox/rehype-prism": "^0.8.0",
     "@types/glob": "^8.1.0",
