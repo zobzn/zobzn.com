@@ -48,9 +48,5 @@ export default function Link(props) {
     }
   }
 
-  return (
-    <NextLink {...nextLinkProps}>
-      <a {...otherProps} />
-    </NextLink>
-  );
+  return <NextLink {...nextLinkProps} {...otherProps} />;
 }

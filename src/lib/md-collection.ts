@@ -1,18 +1,13 @@
-import fs from "fs";
+import fs from "fs/promises";
 import path from "path";
-import util from "util";
-import globCallback from "glob";
+import { glob } from "glob";
 import processMarkdown from "./process-markdown";
-
-const readFile = util.promisify(fs.readFile);
-// const readDir = util.promisify(fs.readdir);
-const glob = util.promisify(globCallback);
 
 export async function readMdCollection(basedir) {
   const root = process.cwd(); // instead of __dirname
 
   const filenames = (
-    await glob("*.md", {
+    await glob.glob("*.md", {
       cwd: path.resolve(root, basedir),
     })
   )
@@ -34,7 +29,7 @@ export async function readMdCollection(basedir) {
 
   const items = await Promise.all(
     jobs.map(async (job) => {
-      const rawContent = await readFile(
+      const rawContent = await fs.readFile(
         path.resolve(root, basedir + "/" + job.filename),
         { encoding: "utf-8" }
       );

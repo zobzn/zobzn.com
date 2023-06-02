@@ -1,7 +1,6 @@
 const path = require("path");
 
 const nextConfig = {
-  future: { webpack5: true },
   pageExtensions: ["js", "jsx", "ts", "tsx", "md"],
   webpack: (config, options) => {
     // const { isServer } = options;

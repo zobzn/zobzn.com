@@ -48,7 +48,7 @@ export default function Article({ note }) {
 
 export async function getStaticPaths() {
   const notes = await getAllPosts();
-  const paths = notes.map(({ slug }) => `/${slug}`);
+  const paths = notes.map(({ slug }) => ({ params: { slug } }));
 
   return {
     paths,

@@ -1,5 +1,5 @@
 import React from "react";
-import unified from "unified";
+import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkGithubFlavoured from "remark-gfm";
 import remark2rehype from "remark-rehype";

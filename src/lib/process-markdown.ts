@@ -1,10 +1,10 @@
-import unified from "unified";
+import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remark2rehype from "remark-rehype";
 import rehypeRaw from "rehype-raw";
 import rehypePrism from "@mapbox/rehype-prism";
 import rehypeStringify from "rehype-stringify";
-import { zonedTimeToUtc, toDate } from "date-fns-tz";
+import { toDate, zonedTimeToUtc } from "date-fns-tz";
 import { doFrontMatter, doGrayMatter } from "./front-matter";
 
 const normalizeMeta = (meta) => {
@@ -38,7 +38,7 @@ const markdown2html = (() => {
     .use(rehypeStringify);
 
   return (markdown) => {
-    return processor.processSync(markdown).contents;
+    return processor.processSync(markdown).toString();
   };
 })();
 

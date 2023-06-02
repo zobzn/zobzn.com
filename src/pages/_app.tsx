@@ -66,7 +66,7 @@ class ZbzApp extends App {
           <link rel="icon" href="/favicon.ico" />
           <link rel="shortcut icon" href="/favicon.ico" />
         </Head>
-        <AnimatePresence exitBeforeEnter initial={false}>
+        <AnimatePresence mode="wait" initial={false}>
           {!isLoading && (
             <motion.div
               key={router.asPath + (isLoading ? 1 : 0)}

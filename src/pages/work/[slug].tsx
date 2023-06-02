@@ -38,7 +38,7 @@ export default function Article({ job }) {
 
 export async function getStaticPaths() {
   const jobs = await getJobs();
-  const paths = jobs.map(({ slug }) => `/work/${slug}`);
+  const paths = jobs.map(({ slug }) => ({ params: { slug } }));
 
   return {
     paths,
