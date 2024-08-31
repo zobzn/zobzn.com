@@ -7,8 +7,15 @@
 {{ end }}
 <link rel="icon" href="/favicon.ico" />
 <link rel="shortcut icon" href="/favicon.ico" />
-<link rel="stylesheet" href="{{ "css/normalize.css" | relURL }}" /> <link
-rel="stylesheet" href="{{ "css/style.css" | relURL }}" />
+<!-- x -->
+{{ $css1 := resources.Get "css/normalize.css" }}
+<!-- x -->
+{{ $css2 := resources.Get "css/style.css" }}
+<!-- x -->
+{{ $css := slice $css1 $css2 | resources.Concat "css/all.css" | resources.Minify
+| resources.Fingerprint }}
+<!-- x -->
+<link rel="stylesheet" href="{{ $css.Permalink }}" />
 <link
   rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap"
