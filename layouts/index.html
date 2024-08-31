@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body>
+    <div class="page-bone index-page">
+      {{ partial "header.html" . }}
+      <!-- x -->
+      <section class="container" style="text-align: center">
+        {{ .Content }}
+      </section>
+      <section class="container mt-40" style="text-align: center">
+        <div style="display: inline-flex; margin: 0 auto">
+          <nav class="index_flex-row">
+            <!-- x -->
+            {{ partial "nav-items.html" . }}
+            <!-- x -->
+          </nav>
+        </div>
+      </section>
+      <!-- x -->
+      {{ block "main" . }} {{ end }}
+      <!-- x -->
+      {{ partial "footer.html" . }}
+    </div>
+  </body>
+</html>

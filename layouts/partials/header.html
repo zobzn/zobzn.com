@@ -1,0 +1,16 @@
+<header class="container header_site-head">
+  <div class="header_site-head__title">
+    {{ if .IsHome }}
+    <h1>Semyon Tokarev</h1>
+    {{ else }}
+    <a href="/">Semyon Tokarev</a>
+    {{ end }}
+  </div>
+  {{ if not .IsHome }}
+  <nav class="header_site-head__menu">
+    <!-- x -->
+    {{ partial "nav-items.html" . }}
+    <!-- x -->
+  </nav>
+  {{ end }}
+</header>

@@ -1,0 +1,30 @@
+{{ define "main"}}
+<section class="container">
+  <!-- {{if not .IsHome }} -->
+  <h2 class="mt-0">{{ .Title | markdownify }}</h2>
+  <!-- {{ end }} -->
+
+  <!-- x -->
+  {{ .Content }}
+  <!-- x -->
+
+  <ul class="posts-list">
+    {{ $pages := .Pages }}
+    <!-- x -->
+    {{ if .IsHome }}
+    <!-- x -->
+    {{ $pages = .Data.Pages }} {{ $pages = .Site.RegularPages }}
+    <!-- x -->
+    {{ end }}
+    <!-- x -->
+    {{ range (where $pages "Section" "!=" "") }}
+    <li class="posts-list__item">
+      <a class="posts-list__item-link" href="{{ .RelPermalink }}"
+        >{{ .Title | markdownify }}</a
+      >
+      <div class="posts-list__item-meta">{{ .Date.Format "January 2006" }}</div>
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{end}}

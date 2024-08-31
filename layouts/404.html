@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body>
+    <div class="not-found-page">
+      <h1>
+        <a class="link-homepage" data-route="/" href="/"></a>Страница не найдена
+      </h1>
+      <p class="para-bordered">
+        Страница, которую Вы ищете, не найдена. Возможно, она была удалена,
+        изменился её адрес, либо страница временно недоступна.
+      </p>
+      <p class="para-bordered">Попробуйте следующее:</p>
+      <ul>
+        <li>
+          Убедитесь, что адрес, набранный в адресной строке Вашего браузера, не
+          содержит ошибок.
+        </li>
+        <li>
+          Нажмите кнопку «<span
+            class="error-page-link"
+            onclick="location.reload()"
+            >Обновить</span
+          >» или повторите попытку позже.
+        </li>
+        <li>
+          Нажмите кнопку «<span class="error-page-link" onclick="history.back()"
+            >Назад</span
+          >», чтобы вернуться на предыдущую страницу.
+        </li>
+      </ul>
+      <p class="para-bordered">
+        Если Вы считаете, что запрошенная Вами страница должна находиться по
+        этому адресу или Вы перешли на нее по ссылке с одной из страниц этого же
+        сайта, пожалуйста,
+        <a class="error-page-link" href="/contact">сообщите мне</a>
+        об этом.
+      </p>
+    </div>
+  </body>
+</html>

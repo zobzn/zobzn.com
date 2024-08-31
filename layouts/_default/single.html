@@ -1,0 +1,25 @@
+{{ define "main"}}
+
+<article class="article">
+  <h1>{{ .Title | markdownify }}</h1>
+
+  <div class="article-body">{{ .Content }}</div>
+
+  <!-- x -->
+
+  {{ with .Params.author }}
+  <h2 class="author">{{ . }}</h2>
+  {{ end }}
+
+  <!-- x -->
+
+  {{ if (gt .Params.date 0) }}
+  <div class="article-info">
+    <div class="article-info__wrapper">
+      <div class="article-info__date">{{ .Date.Format "02.01.2006" }}</div>
+    </div>
+  </div>
+  {{ end }}
+</article>
+
+{{end}}

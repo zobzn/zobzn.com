@@ -4,4 +4,4 @@ My Notes And Tools Website
 
 ## About
 
-Built with the amazing `next.js` and the beloved `scss`.
+Built with `hugo`.

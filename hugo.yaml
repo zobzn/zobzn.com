@@ -1,0 +1,37 @@
+baseURL: "https://zobzn.com/"
+languageCode: "ru"
+title: "Semyon Tokarev"
+
+permalinks:
+  notes: ":slugorfilename"
+
+menu:
+  main:
+    - name: notes
+      url: "notes"
+      weight: 1
+    - name: github
+      url: "https://github.com/zobzn/"
+      weight: 2
+    - name: linkedin
+      url: "https://www.linkedin.com/in/semyon-tokarev/"
+      weight: 3
+
+markup:
+  highlight:
+    style: catppuccin-latte
+  goldmark:
+    renderer:
+      unsafe: true
+    extensions:
+      passthrough:
+        enable: true
+        delimiters:
+          block:
+            - - \[
+              - \]
+            - - $$
+              - $$
+          inline:
+            - - \(
+              - \)
