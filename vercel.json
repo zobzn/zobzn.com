@@ -17,6 +17,18 @@
     {
       "source": "/resume",
       "destination": "/download/cv-tokarev-web-dev-2020.pdf"
+    },
+    {
+      "source": "/proxy.js",
+      "destination": "https://simpleanalyticsexternal.com/proxy.js?hostname=zobzn.com&path=/simple"
+    },
+    {
+      "source": "/auto-events.js",
+      "destination": "https://scripts.simpleanalyticscdn.com/auto-events.js"
+    },
+    {
+      "source": "/simple/:match*",
+      "destination": "https://queue.simpleanalyticscdn.com/:match*"
     }
   ]
 }
