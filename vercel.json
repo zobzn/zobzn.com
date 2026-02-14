@@ -3,7 +3,7 @@
   "buildCommand": "hugo version && hugo --gc --minify",
   "build": {
     "env": {
-      "HUGO_VERSION": "0.155.2"
+      "HUGO_VERSION": "0.155.3"
     }
   },
   "redirects": [
