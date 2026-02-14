@@ -1,0 +1,5 @@
+{
+    "scripts": {
+        "run": "hugo server --navigateToChanged"
+    }
+}
