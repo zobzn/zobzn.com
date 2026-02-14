@@ -28,16 +28,15 @@ date: "2019-08-11 06:20:22"
 | `git status -s`                                                    | показать состояние (что менялось в индексе и рабочей директории)                                  |
 | `git add .`                                                        | добавить все изменения в индекс                                                                   |
 | `git commit -m "comment"`                                          | выполнить коммит                                                                                  |
-| `git commit –allow-empty -m "empty commit"`                        | выполнить коммит, даже если ничего не было изменено                                               |
+| `git commit --allow-empty -m "empty commit"`                       | выполнить коммит, даже если ничего не было изменено                                               |
 | **Работа с ветками**                                               |                                                                                                   |
 | `cat .git/HEAD`                                                    | показать на что указывает HEAD                                                                    |
 | `git branch -a`                                                    | показать список веток                                                                             |
 | `git branch -a -v`                                                 | показать список веток с комментарием из последнего коммита                                        |
 | `git branch [new-name]`                                            | создать новую ветку на основе текущей                                                             |
 | `git branch [new-name] [old-name]`                                 | создать новую ветку на основе указанной (например, на основе origin/branch-name)                  |
-| `git branch -b [new-name]`                                         | создать новую ветку на основе текущей и переключиться на нее                                      |
-| `git branch -b [new-name] [old-name]`                              | создать новую ветку на основе указанной и переключиться на нее                                    |
-| `git checkout [name]`                                              | переключиться на ветку (фактически направить HEAD на указанную ветку)                             |
+| `git switch -c [new-name]`                                         | создать новую ветку на основе текущей и переключиться на нее                                      |
+| `git switch [name]`                                                | переключиться на ветку (фактически направить HEAD на указанную ветку)                             |
 | `git cherry -v [name]`                                             | показать коммиты в текущей ветке, которых нет в указанной                                         |
 | `git cherry -v HEAD [name]`                                        | показать коммиты в указанной ветке, которых нет в текущей                                         |
 | `git cherry -v [name] \| wc -l`                                    | посчитать коммиты в текущей ветке, которых нет в указанной                                        |
@@ -47,8 +46,8 @@ date: "2019-08-11 06:20:22"
 | **Изменение истории, чистка**                                      |                                                                                                   |
 | `git rebase [name]`                                                | переписать коммиты текущей ветки после коммитов в указанной ветке                                 |
 | `git commit --amend -m "new comment"`                              | добавить изменения в последний коммит (опция --no-edit если не надо менять комментарий)           |
-| `git checkout -- .`                                                | откатить непроиндексированные изменения в рабочей директории                                      |
-| `git reset -- .`                                                   | откатить индексацию изменений, оставив их в рабочей директории (`git add .` наоборот)             |
+| `git restore .`                                                    | откатить непроиндексированные изменения в рабочей директории                                      |
+| `git restore --staged .`                                           | откатить индексацию изменений, оставив их в рабочей директории (`git add .` наоборот)             |
 | `git reset HEAD`                                                   | удалить из текущей ветки все коммиты после указанного, оставив все изменения в рабочей директории |
 | `git reset HEAD~1 && git add . && git commit -m 'new comment'`     | изменить последний коммит                                                                         |
 | `git reset HEAD~2 && git add . && git commit -m 'new comment'`     | склеить два последних коммита в один                                                              |
@@ -67,14 +66,14 @@ date: "2019-08-11 06:20:22"
 | `git ls-remote origin`                                             | показать, что есть в origin репозитории                                                           |
 | `git remote -v`                                                    | показать привязанные удаленные репозитории                                                        |
 | `git remote add origin [url]`                                      | добавить указанный репозиторий под именем origin                                                  |
-| `git remote show origin`                                           | показать инфу об origin репозитории                                                               |
+| `git remote show origin`                                           | показать информацию об origin репозитории                                                         |
 | `git fetch origin --prune`                                         | скачать origin репозиторий, не применяя к локальным веткам (в .git/refs/remotes/origin)           |
 | `git fetch origin pull/[pull-request-id]/head:[local-branch-name]` | скачать pull request в локальную ветку                                                            |
 | `git pull origin [name]`                                           | = fetch origin + merge origin/[branch-name]                                                       |
 | `git pull origin [name] --rebase`                                  | = fetch origin + merge origin/[branch-name] + rebase (т.е. избегаем merge коммита)                |
 | `git push origin [name]`                                           | запушить ветку или тег                                                                            |
-| `git push origin :[name]`                                          | удалить ветку или тег в origin репозитории (локальная ветка останется, если есть)                 |
-| `git push origin :refs/tags/[tag-name]`                            | удалить тег в origin репозитории (вариант без путаницы с ветками)                                 |
+| `git push -d origin [name]`                                        | удалить ветку в origin репозитории (локальная ветка останется, если есть)                         |
+| `git push -d origin refs/tags/[tag-name]`                          | удалить тег в origin репозитории                                                                  |
 | `git push origin --follow-tags`                                    | запушить теги с комментариями                                                                     |
 | `git branch -u origin/[name]`                                      | привязать текущую локальную ветку к ветке в origin репозитории                                    |
 | `git branch --unset-upstream`                                      | отвязать текущую локальную ветку от ветки в origin репозитории                                    |
@@ -86,7 +85,7 @@ date: "2019-08-11 06:20:22"
 | `git diff some-file`                                               | показать изменения в файле                                                                        |
 | `git blame some-file`                                              | показать кто/что/когда правил в файле                                                             |
 | **Разное**                                                         |                                                                                                   |
-| `git update-index --chmod=+x path/to/file"`                        | добавить признак исполняемого файла                                                               |
+| `git update-index --chmod=+x path/to/file`                         | добавить признак исполняемого файла                                                               |
 | `git update-index --chmod=-x path/to/file`                         | удалить признак исполняемого файла                                                                |
 | **Заначки**                                                        |                                                                                                   |
 | `git stash`                                                        | сделать заначку снимка рабочей директории                                                         |
@@ -108,11 +107,11 @@ date: "2019-08-11 06:20:22"
 | `git config --global alias.r "remote -v"`                  | показать remote репозитории                   |
 | `git config --global alias.f "fetch --all --tags --prune"` | скачать все с remote репозитория              |
 | `git config --global alias.b "branch"`                     | короткий алиас для branch                     |
-| `git config --global alias.co "checkout"`                  | короткий алиас для checkout                   |
+| `git config --global alias.co "switch"`                    | короткий алиас для switch                     |
 | `git config --global alias.br "branch -a"`                 | показать все ветки                            |
-| `git config --global alias.nb "checkout -b"`               | создать ветку и переключиться на нее          |
-| `git config --global alias.ci "commit -m"`                 | сделать коммит с комментариев                 |
-| `git config --global alias.unstage "reset HEAD"`           | отменить индексацию изменений                 |
+| `git config --global alias.nb "switch -c"`                 | создать ветку и переключиться на нее          |
+| `git config --global alias.ci "commit -m"`                 | сделать коммит с комментарием                 |
+| `git config --global alias.unstage "restore --staged"`     | отменить индексацию изменений                 |
 | `git config --global alias.uncommit "reset --soft HEAD~1"` | отменить последний коммит, сохранив изменения |
 
 и еще несколько для просмотра логов

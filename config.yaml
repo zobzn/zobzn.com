@@ -3,7 +3,7 @@ languageCode: "ru"
 title: "Semyon Tokarev"
 
 permalinks:
-  notes: ":slugorcontentbasename"
+  notes: ":slug"
 
 menu:
   main:
